@@ -22,6 +22,9 @@ xfce4-power-manager &
 # Restore the current wallpaper.
 nitrogen --restore &
 
+# Set the current locale in main bar config.
+ainad-utilities 'Polybar' 'setLocale';
+
 # Set the network interface.
 ainad-utilities 'HardwareDefinition' 'setNetworkInterface';
 

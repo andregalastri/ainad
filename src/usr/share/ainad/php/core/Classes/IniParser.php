@@ -57,12 +57,19 @@ class IniParser
 
     public function writeFile(?string $file = null): void
     {
+        $secondPass = false;
         foreach ($this->iniData as $section => $parameterList) {
+            if ($secondPass) {
+                $iniData[] = "\n";
+            }
+
             $iniData[] = '['.$section."]";
 
             foreach ($parameterList as $key => $value) {
                 $iniData[] = $key.' = '.$value;
             }
+
+            $secondPass = true;
         }
 
         FileManager::writeFile($file ?? $this->iniFile, implode("\n", $iniData));

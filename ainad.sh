@@ -16,7 +16,7 @@ ainad[5]="       ╚═╝░░╚═╝╚═╝╚═╝░░╚══╝╚
 ainad[6]="╔═════════════════════════════════════════════╗ ";
 ainad[7]="║              IS  NOT  A  DISTRO             ║█";
 ainad[8]="╚═════════════════════════════════════════════╝█";
-ainad[9]="  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ v0.2.0-alpha ▀▀";
+ainad[9]="  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ v0.2.1-alpha ▀▀";
 
 # Stores the number of lines used by the $ainad array.
 #
@@ -44,6 +44,16 @@ textSpeed=0.02;
 #
 # @var array $availableLanguages
 availableLanguages=("" "en_US" "pt_BR");
+
+# The current locale.
+#
+# @var string $locale
+locale=$(locale | grep 'LANG=' | sed 's/LANG=//');
+
+# The current language.
+#
+# @var string $language.
+language=$(echo $locale | cut -d '.' -f 1);
 
 # ------
 # Functions
@@ -347,15 +357,25 @@ function SectionInstall()
 
     DoneStage;
 
+    # Stage: Set a default mirror list based on Worldwide. It is needed to
+    # prevent error, if the mirror list is too old or not defined. Later, it
+    # will be updated with Reflector.
+    Describe "$textSettingDefaultMirrorlist";
+
+    curl -Ls https://archlinux.org/mirrorlist/all/ | awk "/^## Worldwide/,/^## A/" | sed -e 's/#Server/Server/' -e 's/^## A.*//' | sudo tee /etc/pacman.d/mirrorlist;
+
+    DoneStage;
+
     # Stage: Installs and configures Pacman keys to prevent problems regarding
     # PGP keys.
     Describe "$textPacmanKey";
 
     sudo pacman-key --init;
     sudo pacman-key --populate;
-    (echo "y") | LANG=C sudo pacman -Sy --needed archlinux-keyring;
+    (echo "y") | LANG=C sudo pacman -Syy --needed archlinux-keyring;
 
     DoneStage;
+
 
     # Stage: Updates Arch Linux.
     Describe "$textUpdatingCurrentSystem";
@@ -363,6 +383,17 @@ function SectionInstall()
     (echo "y") | LANG=C sudo pacman -Syyu;
 
     DoneStage;
+
+
+    # Stage: Installs Reflector and gets the latest 5 mirrors that has the best
+    # speed.
+    Describe "$textUpdatingMirrorlist";
+
+    (echo "y") | LANG=C sudo pacman -S reflector;
+    sudo reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
+
+    DoneStage;
+
 
     # Stage: Installs applications from official repository.
     Describe "$textInstallingNewApps1";
@@ -541,25 +572,25 @@ function SectionInstall()
     Describe "$textInstallingAdditionalApps";
 
     # Rar
-    LANG=C yay --answerdiff None --answerclean All --removemake -S rar;
+    LANG=C yay --answerdiff None --answerclean All --removemake --needed -S rar;
 
     # Google Chrome
-    (echo "y") | LANG=C yay --answerdiff None --answerclean All --removemake -S google-chrome;
+    (echo "y") | LANG=C yay --answerdiff None --answerclean All --removemake --needed -S google-chrome;
 
     # Warsaw
-    LANG=C yay --answerdiff None --answerclean All --removemake -S warsaw-bin;
+    LANG=C yay --answerdiff None --answerclean All --removemake --needed -S warsaw-bin;
 
     # Parcellite
-    (echo "y") | LANG=C yay --answerdiff None --answerclean All --removemake -S parcellite;
+    (echo "y") | LANG=C yay --answerdiff None --answerclean All --removemake --needed -S parcellite;
 
     # Dmenu for Network Manager
-    LANG=C yay --answerdiff None --answerclean All --removemake -S networkmanager-dmenu-git;
+    LANG=C yay --answerdiff None --answerclean All --removemake --needed -S networkmanager-dmenu-git;
 
     # KSuperKey
-    LANG=C yay --answerdiff None --answerclean All --removemake -S ksuperkey;
+    LANG=C yay --answerdiff None --answerclean All --removemake --needed -S ksuperkey;
 
     # Fonts
-    (echo "y") | LANG=C yay --answerdiff None --answerclean All --removemake -S ttf-roboto-mono ttf-roboto ttf-century-gothic;
+    (echo "y") | LANG=C yay --answerdiff None --answerclean All --removemake --needed -S ttf-roboto-mono ttf-roboto ttf-century-gothic;
     fc-cache -f -v;
 
     DoneStage;
@@ -593,14 +624,14 @@ function SectionInstall()
 
     Describe "$textConfiguringUserPermissions";
 
-    sudo groupadd ainad
-    sudo gpasswd -a root ainad
-    sudo gpasswd -a $USER ainad
-    sudo chgrp -R ainad /usr/share/ainad
-    sudo chmod g+rwx -R /usr/share/ainad
-    sudo chgrp -R ainad /usr/share/sddm/themes/sugar-candy
-    sudo chmod g+rwx -R /usr/share/sddm/themes/sugar-candy
-
+    sudo groupadd ainad;
+    sudo gpasswd -a root ainad;
+    sudo gpasswd -a $USER ainad;
+    sudo chgrp -R ainad /usr/share/ainad;
+    sudo chmod g+rwx -R /usr/share/ainad;
+    sudo chgrp -R ainad /usr/share/sddm/themes/sugar-candy;
+    sudo chmod g+rwx -R /usr/share/sddm/themes/sugar-candy;
+    sudo chmod +x /usr/bin/ainad-utilities;
 
     Describe "$textSettingEnvironmentVariables";
 
@@ -632,6 +663,11 @@ ainadBaseDir=/usr/share/ainad
     Describe "$textConfiguringSamba";
 
     sudo sed -i "s/netbios name = <user-name>/netbios name = $HOSTNAME/" "/etc/samba/smb.conf";
+
+
+    Describe "$textConfiguringPhp";
+
+    sudo sed -i -e "s/^;extension=intl/extension=intl/" "/etc/php/php.ini";
 
 
     Describe "$textConfiguringCinnamonTerminal";
@@ -709,7 +745,7 @@ ainadBaseDir=/usr/share/ainad
     # Stage: Enabling services that will run from startup.
     Describe "$textEnablingServices";
 
-    sudo systemctl enable sddm smb nmb avahi-daemon NetworkManager systemd-homed;
+    sudo systemctl enable sddm smb nmb avahi-daemon NetworkManager systemd-homed reflector;
 
     DoneStage;
 

@@ -24,15 +24,17 @@ textDone="\n\n>> CONCLUÍDO!\n\n$textPleaseWait\n";
 
 textConfiguringSudo="CONFIGURANDO SUDO PASSWORD FEEDBACK";
 textParallelDownloads="HABILITANDO DOWNLOADS PARALELOS";
+textSettingDefaultMirrorlist="CONFIGURANDO UMA LISTA DE MIRRORS PADRÃO";
 textPacmanKey="CONFIGURANDO VALIDAÇÃO DE CHAVES PGP";
 textUpdatingCurrentSystem="ATUALIZANDO O SISTEMA ATUAL";
+textUpdatingMirrorlist="ATUALIZANDO A LISTA DE MIRRORS PARA OS DE MELHOR VELOCIDADE";
 textInstallingNewApps1="INSTALANDO NOVOS PROGRAMAS";
 textInstallingNewApps2="Isso pode demorar um pouco, a depender da sua conexão com a internet. Por favor, seja paciente. \n\n";
 textInstallingYay="INSTALANDO O YAY";
 textInstallingAdditionalApps="INSTALANDO PROGRAMAS ADICIONAIS DO AUR";
 textSettingUpConfigs="DEFININDO CONFIGURAÇÕES PADRÃO";
 textEnablingServices="HABILITANDO SERVIÇOS";
-textFinishing="FINALIZANDO...";
+textFinishing="FINALIZANDO...\n\n";
 textAllDone="TUDO PRONTO!";
 textAllDoneFinalMessage="Tudo foi instalado. Execute o comando 'reboot' para reiniciar o computador e tudo estará pronto! \n\n";
 
@@ -43,6 +45,8 @@ textConfiguringUserPermissions="[Config] Configurando permissões de usuário.";
 textSettingEnvironmentVariables="[Config] Configurando variáveis de ambiente.";
 
 textConfiguringSamba="[Samba] Configurando um nome de netbios padrão no Samba.";
+
+textConfiguringPhp="[PHP] Habilitando extensões.";
 
 textConfiguringCinnamonTerminal="[Dconf] Configurando o XFCE Terminal como terminal padrão para Nemo.";
 textConfiguringNemo="[Dconf] Configurando as preferências padrão do Nemo.";

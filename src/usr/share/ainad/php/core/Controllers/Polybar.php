@@ -3,6 +3,7 @@
 namespace Core\Controllers;
 
 use \Core\Classes\FileManager;
+use \Core\Classes\IniParser;
 use \Core\Interfaces\CommonFiles;
 use \Core\Interfaces\CommonDirectories;
 
@@ -12,6 +13,8 @@ use \Core\Interfaces\CommonDirectories;
 class Polybar implements CommonFiles, CommonDirectories
 {
     use \Core\Traits\CommonMethods;
+
+    const POLYBAR_MAIN_CONFIG = AINAD_BASE_DIR.'/polybar/bar-main.ini';
 
     /**
      * __construct
@@ -29,6 +32,15 @@ class Polybar implements CommonFiles, CommonDirectories
     {
         exec("pgrep polybar", $pids);
         FileManager::writePhpVar(self::POLYBAR_DATA, ['bg' => $pids[0], 'main' => $pids[1], 'status' => true]);
+    }
+
+    public function setLocale(): void
+    {
+        $locale = str_replace('LANG=', '', exec("locale | grep 'LANG='"));
+
+        $iniData = new IniParser(self::POLYBAR_MAIN_CONFIG);
+        $iniData->setData('bar/main', 'locale', $locale);
+        $iniData->writeFile();
     }
 
     /**

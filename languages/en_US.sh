@@ -24,15 +24,17 @@ textDone="\n\n>> DONE!\n\n$textPleaseWait\n";
 
 textConfiguringSudo="CONFIGURING SUDO PASSWORD FEEDBACK";
 textParallelDownloads="ENABLING PARALLEL DOWNLOADS";
+textSettingDefaultMirrorlist="SETTING A DEFAULT MIRROR LIST";
 textPacmanKey="CONFIGURING PGP KEY VALIDATION";
 textUpdatingCurrentSystem="UPDATING THE CURRENT SYSTEM";
+textUpdatingMirrorlist="UPDATING MIRROR LIST FOR THE BEST SPEED";
 textInstallingNewApps1="INSTALLING NEW APPLICATIONS";
 textInstallingNewApps2="It may take some time, depending on your internet speed. Please be patient. \n\n";
 textInstallingYay="INSTALLING YAY";
 textInstallingAdditionalApps="INSTALLING ADDITIONAL APPLICATIONS FROM AUR";
 textSettingUpConfigs="SETTING UP DEFAULT CONFIGURATIONS";
 textEnablingServices="ENABLING SERVICES";
-textFinishing="FINISHING...";
+textFinishing="FINISHING...\n\n";
 textAllDone="ALL DONE!";
 textAllDoneFinalMessage="Everything is installed. Just run the 'reboot' command to restart the computer and we are done! \n\n";
 
@@ -43,6 +45,8 @@ textConfiguringUserPermissions="[Config] Configuring user permissions.";
 textSettingEnvironmentVariables="[Config] Setting environment variables.";
 
 textConfiguringSamba="[Samba] Setting up a default netbios name in Samba.";
+
+textConfiguringPhp="[PHP] Enabling extensions.";
 
 textConfiguringCinnamonTerminal="[Dconf] Setting XFCE Terminal as default terminal emulator for Nemo.";
 textConfiguringNemo="[Dconf] Settings default Nemo preferences.";
