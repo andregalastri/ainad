@@ -1,0 +1,195 @@
+configuration {
+    show-icons: false;
+    hover-select: true;
+    me-select-entry: "";
+    me-accept-entry: "!MousePrimary";
+    terminal: "xfce4-terminal";
+    kb-cancel: "Escape,Control+Alt+Shift+F1";
+}
+
+* {
+    font: "RobotoCondensed 15px";
+    text-color: #8a94b1;
+
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    spacing: 0;
+}
+
+window {
+    background-color: #272a33;
+    padding: 6px 8px;
+    border-radius: 6px;
+}
+
+mainbox {
+    children: [textbox-header-text, textbox-content-text, content-information, listview, tools-bottom];
+    spacing: 5px;
+}
+
+listview {
+    spacing: 3px;
+    scrollbar: true;
+    cycle: false;
+}
+
+scrollbar {
+    background-color: #2E323D;
+    handle-color: #8A94B1;
+}
+
+element {
+    border-radius: 3px;
+    padding: 8px;
+    background-color: #2e323d;
+    cursor: pointer;
+}
+
+element selected {
+    background-color: #cf4d80;
+    border: 3px;
+    border-color: #cf4d80;
+}
+
+element-text {
+    font: "Roboto Bold 14px";
+    vertical-align: 0.5;
+    horizontal-align: 0.5;
+    cursor: pointer;
+}
+
+element-text selected {
+    text-color: #fff;
+}
+
+element-icon {
+    cursor: pointer;
+}
+
+inputbar {
+    enabled: true;
+    orientation: horizontal;
+    children: [icon-search, prompt];
+    spacing: 10px;
+    padding: 8px;
+    border-radius: 3px;
+    background-color: #2e323d;
+}
+
+/**
+ * Custom blocks
+ */
+
+icon-search {
+    expand: false;
+    filename: "/usr/share/ainad/rofi/assets/magnifying-glass.svg";
+}
+
+icon-lan {
+    expand: false;
+    filename: "/usr/share/ainad/rofi/assets/lan-connect.svg";
+    size: 18px;
+}
+
+icon-calendar {
+    expand: false;
+    filename: "/usr/share/ainad/rofi/assets/calendar-clock.svg";
+    size: 18px;
+}
+
+icon-uptime {
+    expand: false;
+    filename: "/usr/share/ainad/rofi/assets/clock.svg";
+    size: 16px;
+}
+
+textbox-header-text {
+    expand: false;
+    padding: 3px 3px 6px 3px;
+    font: "Roboto Bold 15px";
+    content: "Header Text";
+}
+
+textbox-content-text, message {
+    expand: false;
+    padding: 10px 3px;
+    content: "Description of this window.";
+    margin: 0 0 10px 0;
+}
+
+content-information {
+    enabled: false;
+    expand: false;
+    children: [textbox-content-information-icon, textbox-content-information-text];
+    padding: 10px;
+    margin: 0 0 20px 0;
+    orientation: horizontal;
+    background-color: #8a94b1;
+    border-radius: 3px;
+}
+
+textbox-content-information-icon {
+    expand: false;
+    font: "Font Awesome 6 Pro Bold 25px";
+    content: "";
+    vertical-align: 0;
+    horizontal-align: 0.5;
+    margin: 0 10px 0 0;
+    padding: 0 0;
+    text-color: #272a33;
+}
+
+textbox-content-information-text {
+    expand: true;
+    font: "RobotoCondensed 15px";
+    content: "Information";
+    vertical-align: 0.5;
+    text-color: #272a33;
+    markup: true;
+}
+
+tools-bottom {
+    expand: false;
+    orientation: horizontal;
+    horizontal-align: 1;
+    children: [button-tools-close];
+    margin: 20px 0 0 0;
+    spacing: 5px;
+}
+
+expand {
+    expand: true;
+}
+
+button-tools-close, button-tools-next, button-tools-previous {
+    expand: true;
+    horizontal-align: 0.5;
+    border-radius: 3px;
+    padding: 8px;
+    text-color: #fff;
+    cursor: pointer;
+}
+
+button-tools-close {
+    font: "Roboto Bold 14px";
+    content: "Fechar";
+    /*background-color: #404554;*/
+    background-color: #2e323d;
+    action: "kb-cancel";
+}
+
+button-tools-next {
+    font: "NotoSans Nerd Font 22px";
+    content: "";
+    background-color: #cf4d80;
+    action: "kb-cancel";
+}
+
+button-tools-previous {
+    font: "NotoSans Nerd Font 22px";
+    content: "";
+    background-color: #cf4d80;
+    action: "kb-cancel";
+}
+

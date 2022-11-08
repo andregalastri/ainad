@@ -1,0 +1,55 @@
+@import "../base-definitions.rasi"
+
+configuration {
+    show-icons: true;
+    location: 1;
+    display-drun: "Buscar :";
+    drun-display-format: "{Icon} {name}";
+    drun-match-fields: "all";
+    drun-show-actions: false;
+}
+
+window {
+    width: 550px;
+    x-offset: 6px;
+    y-offset: 42px;
+}
+
+mainbox {
+    children: [inputbar, listview];
+}
+
+listview {
+    columns: 2;
+    lines: 10;
+    dynamic: true;
+    spacing: 0;
+    padding: 0 0 10px 0;
+}
+
+element {
+    spacing: 3px;
+    padding: 7px 8px;
+    background-color: transparent;
+}
+
+element-icon {
+    size: 24px;
+}
+
+element-text {
+    horizontal-align: 0;
+    font: inherit;
+}
+
+inputbar {
+    children: [icon-search, prompt, entry];
+}
+
+/**
+ * Custom blocks
+ */
+
+textbox-header-text {
+    content: "Aplicações";
+}

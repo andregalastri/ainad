@@ -1,0 +1,9 @@
+[Nemo Action]
+Active=true
+Name=Comprimir...
+Comment=Gera um arquivo comprimido da seleção
+Exec=engrampa -d %F
+Icon-Name=mail-archive
+Selection=notnone
+Extensions=any;
+Quote=double

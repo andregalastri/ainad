@@ -1,0 +1,109 @@
+@import "../base-definitions.rasi"
+@import "calendar-dynamic.rasi"
+
+configuration {
+    location: 3;
+}
+
+window {
+    width: 330px;
+    x-offset: -45px;
+    y-offset: 42px;
+}
+
+mainbox {
+    children: [inputbar, calendar];
+}
+
+prompt {
+    font: "Roboto Bold 18px";
+}
+
+listview {
+    columns: 7;
+    lines: 1;
+    fixed-columns: true;
+    scrollbar: false;
+    spacing: 1px;
+}
+
+element {
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+    padding: 0 4px;
+}
+
+element-text {
+    font: "NotoSans Nerd Font Bold 20px";
+}
+
+inputbar {
+    children: [icon-calendar, prompt];
+    padding: 0;
+    background-color: transparent;
+}
+
+/**
+ * Custom blocks
+ */
+
+tools-bottom {
+    children: [listview];
+    margin: 20px 0 0 0;
+}
+
+calendar {
+    spacing: 1px;
+    children: [today, line-0, line-1, line-2, line-3, line-4, line-5, line-6, tools-bottom];
+}
+
+today {
+    orientation: horizontal;
+    expand: false;
+    spacing: 5px;
+    padding: 5px 0 3px 0;
+    children: [textbox-today-day, textbox-today-weekday];
+}
+
+line-0 {
+    border-radius: 3px;
+    background-color: #2E323D;
+    orientation: horizontal;
+    children: [textbox-cell-0, textbox-cell-1, textbox-cell-2, textbox-cell-3, textbox-cell-4, textbox-cell-5, textbox-cell-6];
+}
+
+line-1 {
+    expand: false;
+    orientation: horizontal;
+    children: [textbox-cell-7, textbox-cell-8, textbox-cell-9, textbox-cell-10, textbox-cell-11, textbox-cell-12, textbox-cell-13];
+}
+
+line-2 {
+    expand: false;
+    orientation: horizontal;
+    children: [textbox-cell-14, textbox-cell-15, textbox-cell-16, textbox-cell-17, textbox-cell-18, textbox-cell-19, textbox-cell-20];
+}
+
+line-3 {
+    expand: false;
+    orientation: horizontal;
+    children: [textbox-cell-21, textbox-cell-22, textbox-cell-23, textbox-cell-24, textbox-cell-25, textbox-cell-26, textbox-cell-27];
+}
+
+line-4 {
+    expand: false;
+    orientation: horizontal;
+    children: [textbox-cell-28, textbox-cell-29, textbox-cell-30, textbox-cell-31, textbox-cell-32, textbox-cell-33, textbox-cell-34];
+}
+
+line-5 {
+    expand: false;
+    orientation: horizontal;
+    children: [textbox-cell-35, textbox-cell-36, textbox-cell-37, textbox-cell-38, textbox-cell-39, textbox-cell-40, textbox-cell-41];
+}
+
+line-6 {
+    expand: false;
+    orientation: horizontal;
+    children: [textbox-cell-42, textbox-cell-43, textbox-cell-44, textbox-cell-45, textbox-cell-46, textbox-cell-47, textbox-cell-48];
+}

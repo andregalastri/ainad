@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# ------
+# This script is a simple wrapper to call the PHP file to run the AINAD
+# utilities.
+# ------
+
+php "$ainadBaseDir/php/run.php" "$@";

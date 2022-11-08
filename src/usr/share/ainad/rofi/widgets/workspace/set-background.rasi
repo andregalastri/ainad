@@ -1,0 +1,47 @@
+@import "../base-definitions.rasi"
+
+window {
+    width: 800px;
+}
+
+mainbox {
+    children: [textbox-header-text, textbox-content-text, icon-background-image, tools-bottom];
+}
+
+listview {
+    expand: true;
+    columns: 4;
+    lines: 1;
+    fixed-columns: true;
+    scrollbar: false;
+}
+
+element {
+    background-color: #2e323d;
+}
+
+element-text {
+    format: bold;
+    horizontal-align: 0.5;
+}
+
+textbox-header-text {
+    content: "Definir como plano de fundo";
+}
+
+textbox-content-text {
+    content: "Onde você gostaria de aplicar este plano de fundo?";
+}
+
+tools-bottom {
+    children: [listview];
+    margin: 20px 0 0 0;
+}
+
+icon-background-image {
+    size: 800px;
+    padding: -250px;
+    border-radius: 3px;
+}
+
+@import "selected-image.rasi"

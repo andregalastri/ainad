@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Icon=update-manager
+Name=Update Manager
+Name[pt_BR]=Gerenciador de Atualizações
+Comment[pt_BR]=Gerencia atualizações do sistema
+Categories=Utility;GTK;
+Exec=ainad-utilities 'Updater' 'launchUpdater' 'recheckUpdates'
+StartupNotify=true
+Terminal=false
+MimeType=application/x-desktop;

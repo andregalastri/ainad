@@ -1,0 +1,25 @@
+* {
+    box-shadow: none;
+}
+
+.titlebar:not(headerbar) .title,
+headerbar .title {
+    font-weight: bold;
+    color: #5C616C;
+}
+
+.solid-csd .titlebar:dir(rtl):not(headerbar),
+.solid-csd .titlebar:dir(ltr):not(headerbar),
+.solid-csd headerbar:backdrop:dir(rtl),
+.solid-csd headerbar:backdrop:dir(ltr),
+.solid-csd headerbar:dir(rtl),
+.solid-csd headerbar:dir(ltr) {
+    background: linear-gradient(#FFFFFF, #E7E8EB);
+    background: linear-gradient(#E7E8EB, #E7E8EB);
+}
+
+window.solid-csd {
+    margin: 0;
+    background: linear-gradient(#FFFFFF, #E7E8EB);
+    background: linear-gradient(#E7E8EB, #E7E8EB);
+}

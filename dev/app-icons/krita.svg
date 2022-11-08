@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="512"
+   height="512"
+   enable-background="new"
+   version="1.1"
+   id="svg1722"
+   sodipodi:docname="krita.svg"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <sodipodi:namedview
+     id="namedview1724"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="0.65186406"
+     inkscape:cx="610.55675"
+     inkscape:cy="182.5534"
+     inkscape:current-layer="svg1722" />
+  <title
+     id="title1662">Krita icon - 2021</title>
+  <defs
+     id="defs1692">
+    <linearGradient
+       id="linearGradient1403"
+       x1="1142.588"
+       x2="1280.895"
+       y1="62.713322"
+       y2="200.87399"
+       gradientTransform="matrix(3.4844548,-0.3593929,0.3593929,3.4844548,-3962.5004,312.8326)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#343434"
+         offset="0"
+         id="stop1664" />
+      <stop
+         stop-color="#4d4d4d"
+         offset="1"
+         id="stop1666" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient1405"
+       x1="1327.594"
+       x2="1324.91"
+       y1="230.8623"
+       y2="89.862343"
+       gradientTransform="matrix(0.0389569,3.5027235,3.5027235,-0.0389569,-173.449,-3959.1876)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#5596ea"
+         offset="0"
+         id="stop1669" />
+      <stop
+         stop-color="#5596ea"
+         stop-opacity="0"
+         offset="1"
+         id="stop1671" />
+    </linearGradient>
+    <clipPath
+       id="clipPath839-4">
+      <circle
+         cx="532"
+         cy="538"
+         r="400"
+         fill-opacity="0.47451"
+         id="circle1674" />
+    </clipPath>
+    <linearGradient
+       id="linearGradient1351"
+       x1="112"
+       x2="711.86438"
+       y1="512"
+       y2="512"
+       gradientTransform="translate(-1211.405,-699.405)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#ff0"
+         offset="0"
+         id="stop1677" />
+      <stop
+         stop-color="#ff0"
+         stop-opacity="0"
+         offset="1"
+         id="stop1679" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient1353"
+       x1="112"
+       x2="711.86438"
+       y1="512"
+       y2="512"
+       gradientTransform="translate(-324.595,187.405)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#0ff"
+         offset="0"
+         id="stop1682" />
+      <stop
+         stop-color="#0ff"
+         stop-opacity="0"
+         offset="1"
+         id="stop1684" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient1355"
+       x1="112"
+       x2="711.86438"
+       y1="512"
+       y2="512"
+       gradientTransform="translate(0,-1024)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#f0f"
+         offset="0"
+         id="stop1687" />
+      <stop
+         stop-color="#f0f"
+         stop-opacity="0"
+         offset="1"
+         id="stop1689" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient1353-7"
+       x1="112"
+       x2="711.86438"
+       y1="512"
+       y2="512"
+       gradientTransform="translate(-325.9202,188.28695)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#0ff"
+         offset="0"
+         id="stop22" />
+      <stop
+         stop-color="#0ff"
+         stop-opacity="0"
+         offset="1"
+         id="stop24" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient1351-5"
+       x1="112"
+       x2="711.86438"
+       y1="512"
+       y2="512"
+       gradientTransform="translate(-1211.5061,-700.99347)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#ff0"
+         offset="0"
+         id="stop17" />
+      <stop
+         stop-color="#ff0"
+         stop-opacity="0"
+         offset="1"
+         id="stop19" />
+    </linearGradient>
+  </defs>
+  <metadata
+     id="metadata1694">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Krita icon - 2021</dc:title>
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/" />
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Wolthera van Hövell tot Westerflier and Timothée Giet</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:description>Based on Krita icon by Timothée Giet, 2013</dc:description>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/by-sa/4.0/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Notice" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Attribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#ShareAlike" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  <rect
+     style="fill:#ffd700;fill-rule:evenodd;stroke-width:0.993646;fill-opacity:1"
+     id="rect379"
+     width="512"
+     height="512"
+     x="0"
+     y="0"
+     rx="0"
+     ry="0" />
+  <rect
+     width="1264.4834"
+     height="1264.4834"
+     stroke="none"
+     fill="#000000"
+     opacity="0"
+     id="rect2389"
+     x="-1141.3732"
+     y="-141.75667"
+     style="stroke-width:52.6868" />
+  <path
+     id="path2391"
+     style="fill:#000000;fill-opacity:1;stroke-width:8.76287"
+     d="M 31.412927,1.5624953e-8 C 26.292711,0.25461202 23.426847,3.9377751 22.020749,7.9324771 80.11784,82.121208 194.88656,208.77866 269.57791,276.93245 273.99807,268.099 281.26307,260.08662 294.77741,252.7976 226.97737,176.46605 103.55389,63.800418 31.412927,1.5624953e-8 Z M 270.38691,72.816368 c -40.0477,0 -71.29905,8.91956 -103.08343,27.424152 67.70202,62.53784 137.71301,131.62132 177.98927,186.01292 6.25461,3.44903 23.23334,14.50586 36.15093,31.36944 21.03366,12.46851 37.39267,33.9324 37.39267,66.79522 1e-5,34.81039 -23.03424,58.60612 -54.404,71.68466 -31.36977,13.07854 -71.33886,16.20454 -107.73499,11.00382 -63.42986,-9.06142 -133.98084,-71.14971 -160.801881,-142.67246 -6.11152,-16.29978 -7.37409,-28.13103 -4.79826,-36.64762 2.57584,-8.51659 9.883781,-13.0893 17.625391,-12.98328 13.66162,0.18709 29.28618,11.4805 38.05703,29.02218 0,0 16.82216,33.67065 59.2599,59.36678 16.56072,2.76254 25.47965,0.79802 30.47454,-2.92464 5.07016,-3.77876 7.13802,-10.06842 8.61046,-18.01941 1.47243,-7.95098 2.18031,-17.15489 5.77488,-25.51176 2.73167,-6.35074 7.47613,-12.10115 15.05704,-15.77274 -1.1285,-0.82534 -2.15682,-1.52943 -3.46116,-2.54845 -4.56786,-3.56868 -10.10092,-8.30403 -16.39099,-13.96933 -12.58015,-11.33063 -28.17198,-26.37321 -44.70794,-42.99257 -31.91601,-32.07695 -67.05424,-69.77648 -90.85149,-98.03996 -38.725361,39.42116 -59.749255,88.99819 -59.749255,148.99434 0,121.32232 98.268985,219.59233 219.591285,219.59234 121.3223,0 219.59234,-98.27004 219.59234,-219.59234 0,-121.3223 -98.27002,-219.591292 -219.59234,-219.591292 z m 65.13014,228.076002 c -13.37752,3.27248 -19.76644,9.68747 -21.7551,22.10824 2.67337,13.29251 8.95408,24.64999 20.41696,30.94191 10.69671,4.54533 20.6006,9.00917 28.14929,16.20551 6.04721,5.76494 10.29567,13.40523 11.9291,23.46211 5.09316,-6.75305 7.17686,-16.54735 6.80391,-27.12237 -0.48086,-13.63482 -5.12835,-28.05431 -10.83302,-36.35316 -9.76352,-11.94828 -23.24842,-22.94749 -34.71114,-29.24224 z"
+     sodipodi:nodetypes="cccccscccssccssccssscssscsssscccscscc" />
+</svg>

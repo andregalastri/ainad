@@ -1,0 +1,41 @@
+@import "../base-definitions.rasi"
+
+configuration {
+    location: 3;
+}
+
+window {
+    width: 350px;
+    x-offset: -6px;
+    y-offset: 42px;
+}
+
+mainbox {
+    children: [inputbar, listview];
+    spacing: 5px;
+}
+
+element {
+    background-color: transparent;
+    spacing: 5px;
+}
+
+element-text {
+    horizontal-align: 0;
+    font: inherit;
+}
+
+inputbar {
+    enabled: true;
+    orientation: horizontal;
+    children: [icon-uptime, prompt];
+    spacing: 5px;
+    padding: 8px;
+    border-radius: 3px;
+    background-color: #2e323d;
+}
+
+listview {
+    lines: 3;
+    scrollbar: false;
+}

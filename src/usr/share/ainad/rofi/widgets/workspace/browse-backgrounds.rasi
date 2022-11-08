@@ -1,0 +1,47 @@
+@import "../base-definitions.rasi"
+
+configuration {
+    show-icons: true;
+}
+
+window {
+    width: 800px;
+}
+
+listview {
+    columns: 3;
+    lines: 3;
+    fixed-columns: true;
+}
+
+element {
+    children: [element-icon];
+    orientation: vertical;
+    padding: -150px;
+}
+
+element-icon {
+    size: 430px;
+    vertical-align: 0.5;
+    horizontal-align: 0.5;
+}
+
+/**
+ * Custom blocks
+ */
+
+textbox-header-text {
+    content: "Planos de fundo";
+}
+
+textbox-content-text {
+    content: "Escolha abaixo o plano de fundo que deseja utilizar.";
+}
+
+content-information {
+    enabled: true;
+}
+
+textbox-content-information-text {
+    content: "Ao selecionar qualquer imagem abaixo, você poderá escolher se irá aplicar a imagem na área de trabalho, na tela de login ou em ambas.\n";
+}

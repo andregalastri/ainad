@@ -1,0 +1,9 @@
+[Nemo Action]
+Active=true
+Name=Definir como plano de fundo
+Comment=Define a imagem selecionada como papel de parede
+Exec=<set-background.sh %F>
+Icon-Name=preferences-desktop-wallpaper-symbolic.symbolic
+Selection=notnone
+Mimetypes=image/*
+Quote=double

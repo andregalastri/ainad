@@ -1,0 +1,40 @@
+@import "../base-definitions.rasi"
+@import "dialog-dynamic.rasi"
+
+mainbox {
+    children: [icon-description, message, content-information, tools-bottom];
+}
+
+listview {
+    columns: 3;
+    lines: 1;
+    scrollbar: false;
+    dynamic: true;
+}
+
+element {
+    background-color: #2e323d;
+}
+
+textbox {
+    horizontal-align: 0.5;
+    font: "RobotoCondensed 16px";
+}
+
+/**
+ * Custom blocks
+ */
+
+message {
+    margin: 15px 0 0 0;
+}
+
+tools-bottom {
+    margin: 10px 0 0 0;
+    children: [listview];
+}
+
+icon-description {
+    size: 70px;
+    margin: 20px 0 0 0;
+}

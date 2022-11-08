@@ -1,0 +1,119 @@
+@import "../base-definitions.rasi"
+
+configuration {
+    show-icons: false;
+}
+
+window {
+    width: 800px;
+}
+
+mainbox {
+    children: [textbox-header-text, textbox-content-text, content-information, update-list, navigation, tools-bottom];
+}
+
+listview {
+    enabled: false;
+}
+
+tools-bottom {
+    children: [button-tools-update, button-tools-close, listview];
+}
+
+/**
+ * Custom blocks
+ */
+
+textbox-header-text {
+    content: "Atualizações";
+}
+
+content-information {
+    enabled: true;
+}
+
+textbox-content-information-text {
+    markup: true;
+    content: "<b>Observação:</b>\nRecomenda-se sempre atualizar todos os pacotes. Desmarque atualizações apenas se você souber o que está\nfazendo.";
+}
+
+textbox-content-text {
+    content: "Estas são as atualizações disponíveis.\nVocê pode desmarcar as atualizações que não deseja aplicar no momento.";
+}
+
+update-list {
+    background-color: #2e323d;
+    padding: 6px 12px 12px 12px;
+    border-radius: 3px;
+    spacing: 5px;
+}
+
+navigation {
+    margin: 6px 10px 0 10px;
+    spacing: 5px;
+    expand: false;
+    orientation: horizontal;
+    children: [textbox-number-of-packages];
+}
+
+@import "updater-pagination.rasi"
+
+button-tools-next {
+    expand: false;
+    padding: 0 8px;
+    action: "kb-custom-16";
+}
+
+button-tools-previous {
+    expand: false;
+    padding: 0 8px;
+    action: "kb-custom-17";
+}
+
+button-tools-update {
+    expand: true;
+    horizontal-align: 0.5;
+    font: "Roboto Bold 15px";
+    border-radius: 3px;
+    padding: 8px;
+    content: "Aplicar atualização";
+    background-color: #cf4d80;
+    text-color: #fff;
+    action: "kb-custom-18";
+    cursor: pointer;
+}
+
+line-label {
+    expand: false;
+    orientation: horizontal;
+    children: [icon-status-label, textbox-package-name-label, textbox-package-old-version-label, textbox-package-new-version-label];
+    spacing: 5px;
+    border: 0 0 1px 0;
+    border-color: #474f66;
+}
+
+icon-status-label {
+    expand: false;
+    size: 20px;
+}
+
+textbox-package-name-label, textbox-package-old-version-label, textbox-package-new-version-label {
+    font: "RobotoCondensed Bold 13px";
+    vertical-align: 0.5;
+}
+
+textbox-package-name-label {
+    content: "PACOTE";
+    margin: 0 0 0 -25px;
+}
+
+textbox-package-old-version-label {
+    content: "VERSÃO ATUAL";
+}
+
+textbox-package-new-version-label {
+    text-color: #0b985d;
+    content: "NOVA VERSÃO";
+}
+
+@import "updater-packages.rasi"

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# ------
+# This script runs on shutting down, rebooting or logging off the system.
+# ------
+
+# ------
+# You can place your custom logoff commands below.
+#
+# You can, also, create custom .sh or .desktop files inside ~/.config/logoff
+# folder and they will also be executed on logoff.
+# ------

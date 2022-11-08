@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE menu [
+    <!ENTITY iconDir "/usr/share/ainad/openbox/menu-icons">
+    <!ENTITY cmdReloadEnvironment "/usr/share/ainad/openbox/autostart-ainad.sh">
+    <!ENTITY cmdBrowseBackgrounds "ainad-utilities 'Workspace' 'browseBackgrounds'">
+    <!ENTITY cmdPoweroff "ainad-utilities 'PowerManager' 'openDialog' 'poweroff'">
+    <!ENTITY cmdReboot "ainad-utilities 'PowerManager' 'openDialog' 'reboot'">
+    <!ENTITY cmdLogoff "ainad-utilities 'PowerManager' 'openDialog' 'logoff'">
+]>
+
+<openbox_menu xmlns="http://openbox.org/3.4/menu">
+<menu id="system-menu" label="Sistema">
+    <item icon="&iconDir;/exit.svg" label="Encerrar sessão">
+        <action name="Execute">
+            <command>&cmdLogoff;</command>
+        </action>
+    </item>
+
+    <separator />
+
+    <item icon="&iconDir;/refresh.svg" label="Reiniciar">
+        <action name="Execute">
+            <command>&cmdReboot;</command>
+        </action>
+    </item>
+
+    <separator />
+
+    <item icon="&iconDir;/power-off.svg" label="Desligar">
+        <action name="Execute">
+            <command>&cmdPoweroff;</command>
+        </action>
+    </item>
+</menu>
+
+<menu id="root-menu" label="Openbox 3">
+    <item icon="&iconDir;/rectangle-terminal.svg" label="Terminal">
+        <action name="Execute">
+            <command>xfce4-terminal</command>
+        </action>
+    </item>
+
+    <separator />
+
+    <item icon="&iconDir;/folder-open.svg" label="Arquivos">
+        <action name="Execute">
+            <command>nemo</command>
+        </action>
+    </item>
+
+    <separator />
+
+    <item icon="&iconDir;/globe.svg" label="Navegador">
+        <action name="Execute">
+            <command>google-chrome-stable</command>
+        </action>
+    </item>
+
+    <separator />
+
+    <item icon="&iconDir;/file-pen.svg" label="Editor de Texto">
+        <action name="Execute">
+            <command>mousepad</command>
+        </action>
+    </item>
+
+    <separator />
+    <separator />
+    <separator />
+    <separator />
+
+    <item icon="&iconDir;/image.svg" label="Planos de fundo">
+        <action name="Execute">
+            <command>&cmdBrowseBackgrounds;</command>
+        </action>
+    </item>
+
+    <separator />
+    <separator />
+    <separator />
+    <separator />
+
+    <menu id="system-menu" icon="&iconDir;/power-settings.svg" />
+
+    <separator />
+
+    <item icon="&iconDir;/window-flip.svg" label="Recarregar Ambiente">
+        <action name="Restart" />
+        <action name="Execute">
+            <command>nitrogen --restore</command>
+        </action>
+        <action name="Execute">
+            <command>&cmdReloadEnvironment;</command>
+        </action>
+    </item>
+</menu>
+
+</openbox_menu>
