@@ -22,11 +22,14 @@ xfce4-power-manager &
 # Restore the current wallpaper.
 nitrogen --restore &
 
-# Set the current locale in main bar config.
-ainad-utilities 'Polybar' 'setLocale';
+# Set the system and OS data.
+ainad-utilities 'System' 'setLocale';
 
 # Set the network interface.
 ainad-utilities 'HardwareDefinition' 'setNetworkInterface';
+
+# Set the current locale in main bar config.
+ainad-utilities 'Polybar' 'setLocale';
 
 # Starts the Polybar panels. It is important to understand that AINAD uses two
 # panels, one as background and another with the modules. 

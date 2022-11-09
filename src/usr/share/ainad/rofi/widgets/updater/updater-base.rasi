@@ -2,7 +2,7 @@
 
 configuration {
     show-icons: false;
-    
+
     timeout {
         delay: 600;
         action: "kb-cancel";

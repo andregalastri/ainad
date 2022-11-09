@@ -29,9 +29,19 @@ class IniParser
         $this->iniData[$section][$parameter] = $value;
     }
 
-    public function getData(): array
+    public function pregReplaceData(string $section, string $parameter, /*mixed*/ $pattern, /*mixed*/ $replacement): void
     {
-        return $this->iniData;
+        $value = preg_replace($pattern, $replacement, $this->iniData[$section][$parameter]);
+        $this->iniData[$section][$parameter] = $value;
+    }
+
+    public function getData(?string $section = null, ?string $parameter = null)//: mixed
+    {
+        if ($section === null and $parameter === null) {
+            return $this->iniData;
+        }
+
+        return $this->iniData[$section][$parameter];
     }
 
     public function loadData(): void

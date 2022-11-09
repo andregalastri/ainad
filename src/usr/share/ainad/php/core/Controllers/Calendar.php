@@ -48,7 +48,7 @@ class Calendar
      * @param  mixed $arg
      * @return void
      */
-    public function buildCalendarGrid(): void
+    private function buildCalendarGrid(): void
     {
         for ($i = 0; $i <= 6; $i++) {
             $this->styles[] = "

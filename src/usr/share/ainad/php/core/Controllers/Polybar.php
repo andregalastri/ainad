@@ -36,10 +36,10 @@ class Polybar implements CommonFiles, CommonDirectories
 
     public function setLocale(): void
     {
-        $locale = str_replace('LANG=', '', exec("locale | grep 'LANG='"));
+        $system = require(self::SYSTEM_DATA);
 
         $iniData = new IniParser(self::POLYBAR_MAIN_CONFIG);
-        $iniData->setData('bar/main', 'locale', $locale);
+        $iniData->setData('bar/main', 'locale', $system['locale']);
         $iniData->writeFile();
     }
 

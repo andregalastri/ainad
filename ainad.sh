@@ -656,7 +656,7 @@ ainadBaseDir=/usr/share/ainad
 
     Describe "$textConfiguringNetworkManager";
 
-    sudo "$HOME/ainad/networkmanager_dmenu_languages.sh" "${availableLanguages[$language]}";
+    sudo "$HOME/ainad/networkmanager_dmenu_languages.sh";
     sudo ln -s "/usr/share/ainad/rofi/widgets/networkmanager-dmenu" "$HOME/.config/networkmanager-dmenu";
 
 

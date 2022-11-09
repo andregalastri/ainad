@@ -25,5 +25,10 @@ interface CommonFiles
      * Path to the file that stores all program available icons to be displayed
      * on the taskbar.
      */
-    const POLYBAR_DATA = BASE_DIR.'/files/task-bar/polybar-data.php';
+    const POLYBAR_DATA = BASE_DIR.'/files/polybar-data.php';
+
+    /**
+     * Path to the file that stores system and OS data.
+     */
+    const SYSTEM_DATA = BASE_DIR.'/files/system-data.php';
 }
