@@ -5,7 +5,7 @@
 # ------
 
 # Importing functions.
-source "$ainadBaseDir/scripts/functions.sh";
+source "$ainadBaseDir/bash/functions.bash";
 
 # Kills programs and loop scripts.
 killall -9 polybar parcellite ksuperkey;

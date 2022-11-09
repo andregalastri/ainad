@@ -2,7 +2,7 @@
 
 <!DOCTYPE menu [
     <!ENTITY iconDir "/usr/share/ainad/openbox/menu-icons">
-    <!ENTITY cmdReloadEnvironment "/usr/share/ainad/openbox/autostart-ainad.sh">
+    <!ENTITY cmdReloadEnvironment "/usr/share/ainad/openbox/autostart-ainad.bash">
     <!ENTITY cmdBrowseBackgrounds "ainad-utilities 'Workspace' 'browseBackgrounds'">
     <!ENTITY cmdPoweroff "ainad-utilities 'PowerManager' 'openDialog' 'poweroff'">
     <!ENTITY cmdReboot "ainad-utilities 'PowerManager' 'openDialog' 'reboot'">

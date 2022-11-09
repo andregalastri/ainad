@@ -2,7 +2,7 @@
 Active=true
 Name=Abrir como Root
 Comment=Abre a pasta selecionada como Root
-Exec=<open-as-root.sh %F>
+Exec=<open-as-root.bash %F>
 #Icon-Name=object-locked
 Icon-Name=dialog-password-symbolic.symbolic
 Selection=any

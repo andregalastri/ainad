@@ -2,7 +2,7 @@
 
 directoryMain=$1
 
-extensions=("\.zip" "\.7z" "\.ar" "\.cbz" "\.cpio" "\.exe" "\.iso" "\.jar" "\.tar\.Z" "\.tar\.bz2" "\.tar\.gz" "\.tar\.lzma" "\.tar\.lz" "\.tar\.xz" "\.tar" "\.rar")
+extensions=("\.zip" "\.7z" "\.ar" "\.cbz" "\.cpio" "\.exe" "\.iso" "\.jar" "\.tgz" "\.tar\.Z" "\.tar\.bz2" "\.tar\.gz" "\.tar\.lzma" "\.tar\.lz" "\.tar\.xz" "\.tar" "\.rar")
 
 for i in ${extensions[*]}
 do

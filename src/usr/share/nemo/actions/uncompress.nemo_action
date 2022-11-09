@@ -2,9 +2,9 @@
 Active=true
 Name=Extrair aqui
 Comment=Extrai os arquivos comprimidos aqui
-Exec=<uncompress.sh %F>
+Exec=<uncompress.bash %F>
 Icon-Name=extract-archive
 Selection=s
-Extensions=zip;7z;ar;cbz;cpio;exe;iso;jar;tar;tar.Z;tar.bz2;tar.gz;tar.lz;tar.lzma;tar.xz;rar;
+Extensions=zip;7z;ar;cbz;cpio;exe;iso;jar;tgz;tar;tar.Z;tar.bz2;tar.gz;tar.lz;tar.lzma;tar.xz;rar;
 Quotes=double
 EscapeSpaces=true

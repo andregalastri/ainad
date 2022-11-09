@@ -16,8 +16,8 @@ class Updater implements CommonFiles, CommonDirectories
     const UPDATER_BASE_THEME = AINAD_BASE_DIR.'/rofi/widgets/updater/updater-base.rasi';
     const UPDATER_PAGINATION_THEME = AINAD_BASE_DIR.'/rofi/widgets/updater/updater-pagination.rasi';
     const UPDATER_PACKAGES_THEME = AINAD_BASE_DIR.'/rofi/widgets/updater/updater-packages.rasi';
-    const UPDATER_ROFI_CMD = AINAD_BASE_DIR.'/rofi/widgets/updater/updater-rofi-cmd.sh';
-    const APPLY_CMD = AINAD_BASE_DIR.'/rofi/widgets/updater/apply.sh';
+    const UPDATER_ROFI_CMD = AINAD_BASE_DIR.'/rofi/widgets/updater/updater-rofi-cmd.bash';
+    const APPLY_CMD = AINAD_BASE_DIR.'/rofi/widgets/updater/apply.bash';
 
     const PACKAGE_DATA = AINAD_BASE_DIR.'/php/files/updater/package-data.php';
     const PACKAGES_PER_PAGE = 10;
@@ -71,11 +71,11 @@ class Updater implements CommonFiles, CommonDirectories
      */
     public function launchUpdater(array $arg): void
     {
-        if (isset($arg[0]) and $arg[0] == 'recheckUpdates') {
-            exec('dunstify -i "update-manager" -t 2000 "Gerenciador de atualizações"  "Por favor, aguarde..."');
-            $this->checkUpdates();
-            $this->polybarHook();
-        }
+        // if (isset($arg[0]) and $arg[0] == 'recheckUpdates') {
+        //     exec('dunstify -i "update-manager" -t 2000 "Gerenciador de atualizações"  "Por favor, aguarde..."');
+        //     $this->checkUpdates();
+        //     $this->polybarHook();
+        // }
 
         exec('rofi -no-config -show updater -modi "updater:'.self::UPDATER_ROFI_CMD.'" -theme "'.self::UPDATER_BASE_THEME.'"');
     }

@@ -5,7 +5,7 @@
 # ------
 
 # Stores the PID of this script to allows it to be killed when needed.
-echo $$ >> "$ainadBaseDir/scripts/loop-scripts/loop.pid";
+echo $$ >> "$ainadBaseDir/bash/loops/loop.pid";
 
 # Forever loop that runs every 2 seconds.
 while true; do

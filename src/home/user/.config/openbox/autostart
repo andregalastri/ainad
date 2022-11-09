@@ -5,11 +5,11 @@
 # ------
 
 # Default autostart commands. DO NOT REMOVE THIS.
-"$ainadBaseDir/openbox/autostart.sh";
+"$ainadBaseDir/openbox/autostart.bash";
 
 # ------
 # You can place your custom autostart commands below.
 #
-# You can, also, create custom .sh or .desktop files inside ~/.config/autostart
-# folder and they will also be executed on startup.
+# You can, also, create custom shell scripts or .desktop files inside
+# ~/.config/autostart folder and they will also be executed on startup.
 # ------

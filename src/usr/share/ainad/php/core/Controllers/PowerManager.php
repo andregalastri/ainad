@@ -118,7 +118,7 @@ class PowerManager
      */
     private function beforeAction(): void
     {
-        exec(AINAD_BASE_DIR.'/openbox/logoff.sh');
+        exec(AINAD_BASE_DIR.'/openbox/logoff.bash');
     }
     
     /**

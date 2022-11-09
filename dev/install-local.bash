@@ -8,9 +8,9 @@
 # download.
 #
 # @var string $baseUrl
-baseUrl="https://raw.githubusercontent.com/andregalastri/ainad/main";
+baseUrl="http://ainad.andregalastri.local.com";
 
-source <(curl -s "$baseUrl/ainad.sh");
+source <(curl -s "$baseUrl/ainad.bash");
 
 clear;
 

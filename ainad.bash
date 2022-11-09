@@ -272,7 +272,7 @@ function SectionChooseLanguage()
             Describe "Please, choose one of the available options." 2;
         else
             Describe "Please wait...";
-            source <(curl -s "$baseUrl/languages/${availableLanguages[$language]}.sh");
+            source <(curl -s "$baseUrl/languages/${availableLanguages[$language]}.bash");
             return;
         fi;
     done;
@@ -656,7 +656,7 @@ ainadBaseDir=/usr/share/ainad
 
     Describe "$textConfiguringNetworkManager";
 
-    sudo "$HOME/ainad/networkmanager_dmenu_languages.sh";
+    sudo "$HOME/ainad/networkmanager_dmenu_languages.bash";
     sudo ln -s "/usr/share/ainad/rofi/widgets/networkmanager-dmenu" "$HOME/.config/networkmanager-dmenu";
 
 

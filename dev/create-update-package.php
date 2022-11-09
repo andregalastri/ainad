@@ -32,9 +32,9 @@ foreach (["en_US.txt", "pt_BR.txt"] as $lessFile) {
 
 copy(REPO_DIR.'/VERSIONS.php', REPO_DIR.'/src/usr/share/ainad/VERSIONS.php');
 
-$ainadVersion = file_get_contents(REPO_DIR.'/ainad.sh');
+$ainadVersion = file_get_contents(REPO_DIR.'/ainad.bash');
 $ainadVersion = preg_replace("/^ainad\[9\]=.*/m", "ainad[9]=\"  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ v".VERSIONS['ainad']." ▀▀\";", $ainadVersion);
-writeFile(REPO_DIR.'/ainad.sh', $ainadVersion);
+writeFile(REPO_DIR.'/ainad.bash', $ainadVersion);
 
 compressDirectory(REPO_DIR.'/src', REPO_DIR.'/dist/ainad.tar');
 

@@ -5,7 +5,7 @@
 # ------
 
 # Importing functions.
-source "$ainadBaseDir/scripts/functions.sh";
+source "$ainadBaseDir/bash/functions.bash";
 
 # Kills programs and loop scripts that will be rerun by this script.
 killall -9 polybar parcellite picom ksuperkey;
@@ -62,5 +62,5 @@ ksuperkey -e 'Super_L=Control_L|Alt_L|Shift_L|F1' &
 ksuperkey -e 'Super_R=Control_L|Alt_L|Shift_L|F1' &
 
 # Starts the loop scripts.
-"$ainadBaseDir/scripts/loop-scripts/2-seconds.sh" &
-"$ainadBaseDir/scripts/loop-scripts/1-hour.sh" &
+"$ainadBaseDir/bash/loops/2-seconds.bash" &
+"$ainadBaseDir/bash/loops/1-hour.bash" &

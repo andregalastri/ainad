@@ -7,6 +7,6 @@
 # ------
 # You can place your custom logoff commands below.
 #
-# You can, also, create custom .sh or .desktop files inside ~/.config/logoff
-# folder and they will also be executed on logoff.
+# You can, also, create custom shell scripts or .desktop files inside
+# ~/.config/logoff folder and they will also be executed on logoff.
 # ------

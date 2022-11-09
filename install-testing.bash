@@ -10,7 +10,7 @@
 # @var string $baseUrl
 baseUrl="https://raw.githubusercontent.com/andregalastri/ainad/testing";
 
-source <(curl -s "$baseUrl/ainad.sh");
+source <(curl -s "$baseUrl/ainad.bash");
 
 clear;
 
