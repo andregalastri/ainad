@@ -1,23 +1,20 @@
 #!/bin/bash
 
-##
+# ------
 # Global definitions.
-##
+# ------
 
-##
-# @var string $baseUrl                  The base URL of the repository where the
-#                                       contents that is needed to be download.
-##
+# The base URL of the repository where the contents that is needed to be
+# download.
+#
+# @var string $baseUrl
 baseUrl="http://ainad.andregalastri.local.com";
 
 source <(curl -s "$baseUrl/ainad.sh");
 
-
-#---
-# Running order.
-
 clear;
 
+# Running order.
 CenterTitle;
 AinadTitleScreenAnimation;
 SectionChooseLanguage;
