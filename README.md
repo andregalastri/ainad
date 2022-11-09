@@ -47,6 +47,14 @@ AINAD uses the Arch Linux package manager **Pacman** and the package manager of 
 
 <br />
 
+* **REFLECTOR**
+
+    *Packages* : `reflector`
+
+    Utility that keeps the mirror list up to date.
+  
+<br />
+
 * **XORG**
 
     *Packages* : `xorg-server xorg-xev`

@@ -46,6 +46,14 @@ Arch Linux, the AUR.
 
 
 
+-   REFLECTOR
+
+    Packages : reflector
+
+    Utility that keeps the mirror list up to date.
+
+----------------------------------------
+
 -   XORG
 
     Packages : xorg-server xorg-xev

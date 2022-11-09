@@ -45,6 +45,14 @@ O AINAD se utiliza do gerenciador de pacotes oficial do Arch Linux, o **Pacman**
 
 <br />
 
+* **REFLECTOR**
+
+    *Pacotes* : `reflector`
+
+    Utilitário que mantém a lista de mirrors atualizada.
+  
+<br />
+
 * **XORG**
 
     *Pacotes* : `xorg-server xorg-xev`

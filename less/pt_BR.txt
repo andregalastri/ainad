@@ -47,6 +47,14 @@ Arch Linux e o repositório da comunidade do Arch Linux, o AUR.
 
 
 
+-   REFLECTOR
+
+    Pacotes : reflector
+
+    Utilitário que mantém a lista de mirrors atualizada.
+
+----------------------------------------
+
 -   XORG
 
     Pacotes : xorg-server xorg-xev
