@@ -40,7 +40,7 @@ class Updater implements CommonFiles, CommonDirectories
      *
      * @return string
      */
-    public function checkUpdates(): string
+    public function checkUpdates(): bool
     {
         exec('yay -Qua && checkupdates', $packageList);
 
@@ -57,11 +57,12 @@ class Updater implements CommonFiles, CommonDirectories
 
         if (!empty($this->packageList)) {
             $this->writePackageData();
-            return '%{T5}%{T-}';
+            return true;
+        } else {
+            $this->writeUpToDateData();
+            return false;
         }
 
-        $this->writeUpToDateData();
-        return '';
     }
 
     /**
@@ -71,13 +72,19 @@ class Updater implements CommonFiles, CommonDirectories
      */
     public function launchUpdater(array $arg): void
     {
-        // if (isset($arg[0]) and $arg[0] == 'recheckUpdates') {
-        //     exec('dunstify -i "update-manager" -t 2000 "Gerenciador de atualizações"  "Por favor, aguarde..."');
-        //     $this->checkUpdates();
-        //     $this->polybarHook();
-        // }
+        if (isset($arg[0]) and $arg[0] == 'recheckPolybarIcon') {
+            // exec('dunstify -i "update-manager" -t 2000 "Gerenciador de atualizações"  "Por favor, aguarde..."');
+            // $this->checkUpdates();
+            $this->polybarHook();
+        }
 
         exec('rofi -no-config -show updater -modi "updater:'.self::UPDATER_ROFI_CMD.'" -theme "'.self::UPDATER_BASE_THEME.'"');
+    }
+
+    public function polybarIcon(): string
+    {
+        $packageData = require(self::PACKAGE_DATA);
+        return $packageData['hasUpdates'] ? '%{T5}%{T-}' : '';
     }
 
     public function polybarHook(): void
@@ -159,6 +166,7 @@ class Updater implements CommonFiles, CommonDirectories
     private function writePackageData(): void
     {
         FileManager::writePhpVar(self::PACKAGE_DATA, [
+            'hasUpdates' => true,
             'list' => $this->packageList,
             'currentPage' => $this->currentPage,
         ]);
@@ -175,6 +183,7 @@ class Updater implements CommonFiles, CommonDirectories
     private function writeUpToDateData(): void
     {
         FileManager::writePhpVar(self::PACKAGE_DATA, [
+            'hasUpdates' => false,
             'list' => [],
             'currentPage' => 1,
         ]);

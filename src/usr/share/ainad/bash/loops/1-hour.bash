@@ -13,6 +13,7 @@ while true; do
     # Runs the Polybar hook that checks for updates. It waits for 20 seconds to
     # prevent errors on startup.
     sleep 20;
+    ainad-utilities 'Updater' 'checkUpdates';
     ainad-utilities 'Updater' 'polybarHook';
 
     # Waits 1 hour.
