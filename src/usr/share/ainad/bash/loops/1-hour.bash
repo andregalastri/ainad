@@ -14,6 +14,7 @@ while true; do
     # prevent errors on startup.
     sleep 20;
     ainad-utilities 'Updater' 'checkUpdates';
+    sleep 1;
     ainad-utilities 'Updater' 'polybarHook';
 
     # Waits 1 hour.
