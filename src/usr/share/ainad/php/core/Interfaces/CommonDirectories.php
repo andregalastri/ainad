@@ -3,7 +3,7 @@
 namespace Core\Interfaces;
 
 /**
- * Contains the methods and properties related to the Polybar Taskbar module.
+ * This interface has only common constants to be used by various classes.
  */
 interface CommonDirectories
 {

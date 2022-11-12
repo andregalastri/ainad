@@ -362,7 +362,8 @@ function SectionInstall()
     # will be updated with Reflector.
     Describe "$textSettingDefaultMirrorlist";
 
-    curl -Ls https://archlinux.org/mirrorlist/all/ | awk "/^## Worldwide/,/^## A/" | sed -e 's/#Server/Server/' -e 's/^## A.*//' | sudo tee /etc/pacman.d/mirrorlist;
+    sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist_old
+    curl -Ls https://archlinux.org/mirrorlist/all/ | awk "/^## Worldwide/,/^## A/" | sed -e 's/#Server/Server/' -e 's/^## A.*//' | sudo tee /etc/pacman.d/mirrorlist 1>/dev/null;
 
     DoneStage;
 
@@ -390,7 +391,7 @@ function SectionInstall()
     Describe "$textUpdatingMirrorlist";
 
     (echo "y") | LANG=C sudo pacman -S reflector;
-    sudo reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
+    sudo reflector --fastest 5 --latest 5 --save /etc/pacman.d/mirrorlist
 
     DoneStage;
 
@@ -631,7 +632,7 @@ function SectionInstall()
     sudo chmod g+rwx -R /usr/share/ainad;
     sudo chgrp -R ainad /usr/share/sddm/themes/sugar-candy;
     sudo chmod g+rwx -R /usr/share/sddm/themes/sugar-candy;
-    sudo chmod +x /usr/bin/ainad-utilities;
+    sudo chmod +x /usr/local/bin/ainad-utilities;
 
     Describe "$textSettingEnvironmentVariables";
 

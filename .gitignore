@@ -6,7 +6,7 @@ src/usr/share/ainad/rofi/widgets/calendar/calendar-dynamic.rasi
 src/usr/share/ainad/rofi/widgets/dialog/dialog-dynamic.rasi
 src/usr/share/ainad/rofi/widgets/workspace/selected-image.rasi
 
-src/usr/share/ainad/scripts/loop-scripts/loop.pid
+src/usr/share/ainad/bash/loops/loop.pid
 
 src/usr/share/ainad/php/files/task-bar/cached-icons.php
 src/usr/share/ainad/php/files/updater/package-data.php

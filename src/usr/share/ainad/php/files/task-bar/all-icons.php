@@ -10,8 +10,8 @@ return [
     'nemo.Nemo' => [''],
     'mousepad' => [''],
     'terminal' => [''],
-    'google-chrome' => ['', '%{T9}'],
-    'firefox' => ['', '%{T9}'],
+    'google-chrome' => ['', 9],
+    'firefox' => ['', 9],
     'viewnior' => [''],
     'flameshot.flameshot' => [''],
     'engrampa' => [''],
@@ -58,5 +58,5 @@ return [
     'nm-connection-editor' => [''],
     'dconf-editor' => [''],
 
-    'N/A' => ['', '%{T7}'],
+    'N/A' => ['', 8],
 ];

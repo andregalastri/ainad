@@ -4,9 +4,6 @@ namespace Core\Controllers;
 
 use \Core\Classes\FileManager;
 
-/**
- * Contains the methods and properties related to the Polybar Taskbar module.
- */
 class PowerManager
 {
     const POWER_MENU_THEME = AINAD_BASE_DIR.'/rofi/widgets/power-menu/power-menu.rasi';
@@ -14,143 +11,186 @@ class PowerManager
     const DIALOG_DYNAMIC_THEME = AINAD_BASE_DIR.'/rofi/widgets/dialog/dialog-dynamic.rasi';
     const ASSETS_DIR = AINAD_BASE_DIR.'/rofi/assets';
 
-    /**
-     * __construct
-     *
-     * @param  mixed $client
-     * @return void
-     */
     public function __construct(){}
     
     /**
-     * openMenu
+     * Opens the power menu using ROFI.
      *
-     * @param  mixed $arg
      * @return void
      */
     public function openMenu(): void
     {
-        $getLabel = function(string $icon, string $label): string
-        {
+        /**
+         * Returns the icon of a specific font family using Pango markup and the
+         * label that describes the option.
+         *
+         * @param string $icon          The icon that represents the option.
+         *
+         * @param string label          The label that represents the option.
+         *
+         * @return void
+         */
+        $baseOptionStyle = function (string $icon, string $label): string {
             return "<span font_family='Font Awesome 6 Pro' weight='bold'>".$icon."</span> ".$label;
         };
 
-        $getOption = function(string $icon, string $label): string
-        {
-            return $label.'\0icon\x1f'.self::ASSETS_DIR.'/'.$icon;
-        };
-
-        $label = [
-            'logoff' => $getLabel('', ' Encerrar sessão'),
-            'reboot' => $getLabel('', ' Reiniciar'),
-            'poweroff' => $getLabel('', ' Desligar'),
-        ];
-
+        /**
+         * Navigation options.
+         */
         $option = [
-            'logoff' => $getOption('exit-light.svg', $label['logoff']),
-            'reboot' => $getOption('refresh-light.svg', $label['reboot']),
-            'poweroff' => $getOption('power-off-light.svg', $label['poweroff']),
+            'logoff' => $baseOptionStyle('', ' Encerrar sessão'),
+            'reboot' => $baseOptionStyle('', ' Reiniciar'),
+            'poweroff' => $baseOptionStyle('', ' Desligar'),
         ];
 
-        $uptime = trim(str_replace(['up', 'hour', 'minute', 'day'],['', 'hora', 'minuto', 'dia'], exec('uptime -p')));
+        /**
+         * Gets the uptime of the current session. It translates the string if
+         * needed.
+         */
+        $uptime = trim(str_replace(['up', 'hour', 'minute', 'day'],['Ativo há', 'hora', 'minuto', 'dia'], exec('uptime -p')));
 
-        $choice = exec('echo -e "'.implode("\n", $option).'" | rofi -dmenu -markup-rows -p "Ativo há '.$uptime.'" -theme "'.self::POWER_MENU_THEME.'"');
+        /**
+         * Runs ROFI to display the power menu and waits for the user to choose
+         * one option.
+         */
+        $choice = exec('echo -e "'.implode("\n", $option).'" | rofi -dmenu -markup-rows -p "'.$uptime.'" -theme "'.self::POWER_MENU_THEME.'"');
 
+        /**
+         * If the choice matches one of the defined options below, then an
+         * dialog is open asking to the user to confirm the action. Any other
+         * value (or if the user clicks outside) closes the menu.
+         */
         switch($choice) {
-            case $label['poweroff']:
-                if ($this->openDialog(['poweroff'])) {
-                    $this->shutdown();
-                };
+            case $option['poweroff']:
+                $this->openDialog(['poweroff']);
             break;
 
-            case $label['reboot']:
-                if ($this->openDialog(['reboot'])) {
-                    $this->reboot();
-                };
+            case $option['reboot']:
+                $this->openDialog(['reboot']);
             break;
 
-            case $label['logoff']:
-                if ($this->openDialog(['logoff'])) {
-                    $this->logoff();
-                };
+            case $option['logoff']:
+                $this->openDialog(['logoff']);
             break;
         }
     }
     
     /**
-     * openDialog
+     * Opens the dialog asking if the user confirms the action chose.
      *
-     * @param  mixed $arg
+     * @param  array $arg               Arguments received by the method:
+     *                                  [
+     *                                      0: The action chose. Can be
+     *                                      'poweroff', 'reboot' or 'logoff'.
+     *                                  ]
+
+     *
      * @return void
      */
-    public function openDialog(array $arg): bool
+    public function openDialog(array $arg): void
     {
+        /**
+         * Dialog options.
+         */
         $option = [
             'yes' => 'Sim',
             'no' => 'Não',
         ];
 
+        /**
+         * Messages asking the user to confirm the action.
+         */
         $message = [
             'poweroff' => 'Deseja realmente desligar o computador?',
             'reboot' => 'Deseja realmente reiniciar o computador?',
             'logoff' => 'Deseja realmente encerrar esta sessão?',
         ];
 
+        /**
+         * Checks if the $arg[0] has a valid option, that are 'poweroff',
+         * 'reboot' or 'logoff' (defined in the $message array). If the value is
+         * invalid, the dialog will not pop up.
+         */
         if (array_key_exists($arg[0], $message)) {
+
+            /**
+             * Creates a ROFI theme file with the proper description and icon,
+             * based on the action the user chose.
+             */
             FileManager::writeFile(self::DIALOG_DYNAMIC_THEME, "window {\n    width: 320px;\n}\n\nicon-description {\n    filename: \"".self::ASSETS_DIR."/".$arg[0].".svg\";\n}\n");
 
+            /**
+             * Launch ROFI using the theme created above and waits the user
+             * choose one of the dialog options.
+             */
             $choice = exec('echo -e "'.implode("\n", $option).'" | rofi -dmenu -mesg "'.$message[$arg[0]].'" -theme "'.self::DIALOG_BASE_THEME.'"');
     
-            switch($choice) {
-                case $option['yes']:
-                    return true;
-                break;
+            /**
+             * If the option is equal to 'yes', then it will execute the action.
+             */
+            if ($choice == $option['yes']) {
+                switch($arg[0]) {
+                    case 'poweroff':
+                        $this->poweroff();
+                    break;
+        
+                    case 'reboot':
+                        $this->reboot();
+                    break;
+        
+                    case 'logoff':
+                        $this->logoff();
+                    break;
+                }
             }
         }
-
-        return false;
     }
-    
+
     /**
-     * beforeAction
+     * Has actions that will be executed before the final action, like close
+     * apps safely for example.
      *
      * @return void
      */
-    private function beforeAction(): void
+    private function firstActions(): void
     {
+        /**
+         * Calls the logoff.bash script, which runs the user logoff commands as
+         * well.
+         */
         exec(AINAD_BASE_DIR.'/openbox/logoff.bash');
     }
     
     /**
-     * shutdown
+     * Power off the computer.
      *
      * @return void
      */
-    private function shutdown(): void
+    private function poweroff(): void
     {
-        $this->beforeAction();
+        $this->firstActions();
         exec('systemctl poweroff > /dev/null &');
     }
     
     /**
-     * reboot
+     * Reboot the computer.
      *
      * @return void
      */
     private function reboot(): void
     {
-        $this->beforeAction();
+        $this->firstActions();
         exec('systemctl reboot > /dev/null &');
     }
     
     /**
-     * logoff
+     * Logs off the current session.
      *
      * @return void
      */
     private function logoff(): void
     {
-        $this->beforeAction();
+        $this->firstActions();
         exec('openbox --exit > /dev/null &');
     }
 }

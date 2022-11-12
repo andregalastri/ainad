@@ -2,6 +2,10 @@
 
 namespace Core\Traits;
 
+/**
+ * This trait has only common properties and methods to be used by various
+ * classes.
+ */
 trait CommonMethods
 {
     /**
@@ -10,12 +14,13 @@ trait CommonMethods
     private string $activeWindow;
 
     /**
-     * 
+     * @var array $polybarData          Stores the Polybar data, such as PIDs
+     *                                  and if it is visible.
      */
     private array $polybarData;
     
     /**
-     * setActiveWindow
+     * Gets the current window ID (the window that is in focus).
      *
      * @return void
      */
@@ -26,7 +31,8 @@ trait CommonMethods
     }
     
     /**
-     * getPolybarPids
+     * Initiates the $polybarData property by getting the Polybar data stored in
+     * the PHP configuration data.
      *
      * @return void
      */

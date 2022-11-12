@@ -24,6 +24,7 @@ nitrogen --restore &
 
 # Set the system and OS data.
 ainad-utilities 'System' 'setLocale';
+ainad-utilities 'System' 'setTimezone';
 
 # Set the network interface.
 ainad-utilities 'HardwareDefinition' 'setNetworkInterface';

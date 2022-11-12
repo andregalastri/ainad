@@ -38,6 +38,11 @@ define('BASE_DIR', dirname(__FILE__));
 define('AINAD_BASE_DIR', getenv('ainadBaseDir'));
 
 /**
+ * Home directory of the current user, from environment variable.
+ */
+define('HOME', getenv('HOME'));
+
+/**
  * Requiring the autoload from Composer.
  */
 require BASE_DIR.'/vendor/autoload.php';

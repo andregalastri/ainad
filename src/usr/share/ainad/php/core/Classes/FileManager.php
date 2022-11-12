@@ -2,11 +2,13 @@
 
 namespace Core\Classes;
 
-/**
- * Contains methods related to file management.
- */
 class FileManager 
 {
+    /**
+     * This class is static and cannot be instantiated.
+     */
+    private function __construct(){}
+    
     /**
      * Source: https://stackoverflow.com/a/2050909
      * - Author: Felix Kling
@@ -205,13 +207,17 @@ class FileManager
     }
     
     /**
-     * writePhpVar
+     * Saves an data into a PHP file, with return keyword to allow the data to
+     * be imported again when needed.
      *
-     * @param  mixed $location
-     * @param  mixed $value
+     * @param  mixed $file              File path where the file will be save.
+     * 
+     * @param  mixed $value             The variable that will be stored.
+     * 
      * @return void
      */
-    public static function writePhpVar(string $location, mixed $value) {
-        self::writeFile($location, "<?php\n\nreturn ".var_export($value, true).";\n");
+    public static function writePhpVar(string $file, mixed $value): void
+    {
+        self::writeFile($file, "<?php\n\nreturn ".var_export($value, true).";\n");
     }
 }
