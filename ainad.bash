@@ -357,16 +357,6 @@ function SectionInstall()
 
     DoneStage;
 
-    # Stage: Set a default mirror list based on Worldwide. It is needed to
-    # prevent error, if the mirror list is too old or not defined. Later, it
-    # will be updated with Reflector.
-    Describe "$textSettingDefaultMirrorlist";
-
-    sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist_old
-    curl -Ls https://archlinux.org/mirrorlist/all/ | awk "/^## Worldwide/,/^## A/" | sed -e 's/#Server/Server/' -e 's/^## A.*//' | sudo tee /etc/pacman.d/mirrorlist 1>/dev/null;
-
-    DoneStage;
-
     # Stage: Installs and configures Pacman keys to prevent problems regarding
     # PGP keys.
     Describe "$textPacmanKey";
@@ -377,24 +367,12 @@ function SectionInstall()
 
     DoneStage;
 
-
     # Stage: Updates Arch Linux.
     Describe "$textUpdatingCurrentSystem";
 
     (echo "y") | LANG=C sudo pacman -Syyu;
 
     DoneStage;
-
-
-    # Stage: Installs Reflector and gets the latest 5 mirrors that has the best
-    # speed.
-    Describe "$textUpdatingMirrorlist";
-
-    (echo "y") | LANG=C sudo pacman -S reflector;
-    sudo reflector --fastest 5 --latest 5 --save /etc/pacman.d/mirrorlist
-
-    DoneStage;
-
 
     # Stage: Installs applications from official repository.
     Describe "$textInstallingNewApps1";
@@ -456,25 +434,33 @@ function SectionInstall()
 
     # Detecting the GPU driver.
     gpuString="$(lspci -nn | grep '\[03')";
+    gpu='amd';
 
     if [[ "$(echo "$gpuString" | grep -i 'nvidia')" != "" ]]; then
         # Nvidia drivers
-        packages+=("nvidia nvidia-lts nvidia-utils nvidia-settings");
-    fi;
+        gpu='nvidia';
 
-    if [[ "$(echo "$gpuString" | grep -i 'vmware')" != "" ]]; then
+        packages+=("nvidia nvidia-lts nvidia-utils nvidia-settings");
+
+    elif [[ "$(echo "$gpuString" | grep -i 'vmware')" != "" ]]; then
         # VMWare drivers
         packages+=("virtualbox-guest-iso virtualbox-guest-utils xf86-video-vmware");
-    fi;
+        gpu='vmware';
 
-    if [[ "$(echo "$gpuString" | grep -i 'intel')" != "" ]]; then
-        # Intel drivers
+    elif [[ "$(echo "$gpuString" | grep -i 'intel')" != "" ]]; then
+        gpu='intel';
+
+        # Intel drivers.
+        #
+        # In my tests, xf86-video-intel got a better performance than
+        # modesetting, but it needs composer enable to prevent windows leaving
+        # trails while moving.
         packages+=("vulkan-intel xf86-video-intel");
+    else
+        # AMD/ATI drivers These are the only GPU packages that are installed no
+        # matter which GPU is installed.
+        packages+=("vulkan-radeon xf86-video-amdgpu xf86-video-ati");
     fi;
-
-    # AMD/ATI drivers These are the only GPU packages that are installed no
-    # matter which GPU is installed.
-    packages+=("vulkan-radeon xf86-video-amdgpu xf86-video-ati");
 
     # Nitrogen
     packages+=("nitrogen");
@@ -537,7 +523,7 @@ function SectionInstall()
     packages+=("qt5ct");
 
     # Network Settings
-    packages+=("networkmanager nm-connection-editor");
+    packages+=("networkmanager nm-connection-editor dhcpcd iwd dhclient");
 
     # Picom
     packages+=("picom");
@@ -654,7 +640,6 @@ GTK_THEME=Arc-Lighter
 ainadBaseDir=/usr/share/ainad
 " | sudo tee -a "$environmentFile" 1>/dev/null;
 
-
     Describe "$textConfiguringNetworkManager";
 
     sudo "$HOME/ainad/networkmanager_dmenu_languages.bash";
@@ -742,6 +727,10 @@ ainadBaseDir=/usr/share/ainad
 
 
     DoneStage;
+
+    if [[ "$gpu" == 'intel' ]]; then
+        sudo sed -i "s/#//" "/etc/X11/xorg.conf.d/20-intel.conf";
+    fi;
 
     # Stage: Enabling services that will run from startup.
     Describe "$textEnablingServices";
