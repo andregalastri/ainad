@@ -314,7 +314,11 @@ class Updater implements CommonFiles, CommonDirectories
              * This command pass the selected packages to the bash script that
              * runs Yay to apply the updates.
              */
-            exec('xfce4-terminal -e "'.self::APPLY_CMD.' \"'.implode(' ', $selectedPackages).'\""');
+            $updateStatus = exec('xfce4-terminal -e "'.self::APPLY_CMD.' \"'.implode(' ', $selectedPackages).'\""');
+
+            if ($updateStatus) {
+                $this->writeUpToDateData();
+            }
         } else {
             exec('dunstify -i "dialog-warning" -u "critical" -t 10000 "Atenção!" "É necessário selecionar ao menos um pacote de atualização."');
         }
