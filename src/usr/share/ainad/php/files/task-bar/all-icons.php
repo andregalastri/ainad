@@ -5,6 +5,11 @@
  *                                      
  * Format:
  * '<window-class>' => ['<icon>', '<font-id>'],
+ * 
+ * Font IDs
+ * 7 or none : Aicons Bold
+ * 8         : Aicons Regular
+ * 9         : Font Awesome 6 Brands Regular
  */
 return [
     'nemo.Nemo' => [''],
@@ -23,7 +28,7 @@ return [
     'telegram' => [''],
     'xreader.Xreader' => [''],
     'rhythmbox' => [''],
-    'file_progress.Nemo' => [''],
+    'file_progress.Nemo' => [''],
     'thunderbird' => [''],
 
     'gimp' => [''],
@@ -41,6 +46,7 @@ return [
     'lxtask' => [''],
     'gnome-system-monitor' => [''],
     'gnome-disks' => [''],
+    'gparted' => [''],
     'gnome-font-viewer' => [''],
     'VirtualBox' => [''],
     'filezilla.FileZilla' => [''],
