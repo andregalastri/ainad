@@ -24,10 +24,8 @@ textDone="\n\n>> CONCLUÍDO!\n\n$textPleaseWait\n";
 
 textConfiguringSudo="CONFIGURANDO SUDO PASSWORD FEEDBACK";
 textParallelDownloads="HABILITANDO DOWNLOADS PARALELOS";
-textSettingDefaultMirrorlist="CONFIGURANDO UMA LISTA DE MIRRORS PADRÃO";
 textPacmanKey="CONFIGURANDO VALIDAÇÃO DE CHAVES PGP";
 textUpdatingCurrentSystem="ATUALIZANDO O SISTEMA ATUAL";
-textUpdatingMirrorlist="ATUALIZANDO A LISTA DE MIRRORS PARA OS DE MELHOR VELOCIDADE";
 textInstallingNewApps1="INSTALANDO NOVOS PROGRAMAS";
 textInstallingNewApps2="Isso pode demorar um pouco, a depender da sua conexão com a internet. Por favor, seja paciente. \n\n";
 textInstallingYay="INSTALANDO O YAY";

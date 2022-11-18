@@ -24,10 +24,8 @@ textDone="\n\n>> DONE!\n\n$textPleaseWait\n";
 
 textConfiguringSudo="CONFIGURING SUDO PASSWORD FEEDBACK";
 textParallelDownloads="ENABLING PARALLEL DOWNLOADS";
-textSettingDefaultMirrorlist="SETTING A DEFAULT MIRROR LIST";
 textPacmanKey="CONFIGURING PGP KEY VALIDATION";
 textUpdatingCurrentSystem="UPDATING THE CURRENT SYSTEM";
-textUpdatingMirrorlist="UPDATING MIRROR LIST FOR THE BEST SPEED";
 textInstallingNewApps1="INSTALLING NEW APPLICATIONS";
 textInstallingNewApps2="It may take some time, depending on your internet speed. Please be patient. \n\n";
 textInstallingYay="INSTALLING YAY";
