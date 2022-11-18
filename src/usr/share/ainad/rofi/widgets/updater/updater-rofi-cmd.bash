@@ -20,7 +20,6 @@ function SetPackageSelected()
     ainad-utilities 'Updater' 'setPackageSelected' $1;
 
     # This pause is needed to avoid ROFI reopen too soon.
-    sleep 0.07;
     killall -9 rofi;
     ainad-utilities 'Updater' 'launchUpdater';
 };
@@ -35,7 +34,6 @@ function SetPage() {
     ainad-utilities 'Updater' 'setPage' $1;
 
     # This pause is needed to avoid ROFI reopen too soon.
-    sleep 0.07;
     killall -9 rofi;
     ainad-utilities 'Updater' 'launchUpdater';
 };
@@ -44,7 +42,6 @@ function SetPage() {
 #
 # @return void
 function ApplyUpdates() {
-    sleep 0.07;
     ainad-utilities 'Updater' 'applyUpdates';
 };
 
