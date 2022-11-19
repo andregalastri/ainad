@@ -316,7 +316,7 @@ class Updater implements CommonFiles, CommonDirectories
              */
             $updateStatus = exec('xfce4-terminal -e "'.self::APPLY_CMD.' \"'.implode(' ', $selectedPackages).'\""');
 
-            if ($updateStatus) {
+            if ($updateStatus == 0) {
                 $this->writeUpToDateData();
             }
         } else {
