@@ -26,18 +26,6 @@ class HardwareDefinition implements CommonFiles
         exec("ip -br -c link show | grep -v '00:00:00:00:00:00'", $interfaceList);
 
         /**
-         * Gets the system data to define the Dmenu language.
-         */
-        $system = require(self::SYSTEM_DATA);
-        $dmenu = 'networkmanager_dmenu_'.$system['ainadLanguage'];
-
-        /**
-         * The pattern that will be used to update the Dmenu language on every
-         * boot.
-         */
-        $regexPattern = '/("%{A1:)(.*?)(\s&:}.*)/';
-
-        /**
          * Import the INI file to update it with every network interface found.
          */
         $config = new IniParser(self::NETWORK_INI_FILE);
@@ -79,21 +67,12 @@ class HardwareDefinition implements CommonFiles
             $config->setData($module, 'accumulate-stats', true);
             $config->setData($module, 'unknown-as-up', true);
             $config->setData($module, 'label-connected', '"%downspeed%"');
-            $config->setData($module, 'label-disconnected', '"%Offline%"');
-            $config->setData($module, 'label-disconnected', '"%Offline%"');
-            $config->setData($module, 'format-connected', '"%{A1: &:}<label-connected>%{A}"');
-            $config->setData($module, 'format-connected-prefix', '"%{A1: &:}  %{A}"');
-            $config->setData($module, 'format-disconnected', '"%{A1: &:}<label-disconnected>%{A}"');
-            $config->setData($module, 'format-disconnected-prefix', '"%{A1: &:}  %{A}"');
+            $config->setData($module, 'label-disconnected', '"Offline"');
+            $config->setData($module, 'format-connected', '"<label-connected>"');
+            $config->setData($module, 'format-connected-prefix', '"  "');
+            $config->setData($module, 'format-disconnected', '"<label-disconnected>"');
+            $config->setData($module, 'format-disconnected-prefix', '"  "');
             
-            /**
-             * Updates the Dmenu action
-             */
-            $config->pregReplaceData($module, 'format-connected', $regexPattern, '$1'.$dmenu.'$3');
-            $config->pregReplaceData($module, 'format-connected-prefix', $regexPattern, '$1'.$dmenu.'$3');
-            $config->pregReplaceData($module, 'format-disconnected', $regexPattern, '$1'.$dmenu.'$3');
-            $config->pregReplaceData($module, 'format-disconnected-prefix', $regexPattern, '$1'.$dmenu.'$3');
-
             $count++;
         }
 

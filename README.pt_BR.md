@@ -404,9 +404,11 @@ O AINAD se utiliza do gerenciador de pacotes oficial do Arch Linux, o **Pacman**
 
 * **NETWORK SETTINGS**
 
-    *Pacotes* : `networkmanager nm-connection-editor`
+    *Pacotes* : `connman wpa_supplicant bluez openvpn`
 
-    Um programa avançado para configuração de redes.
+    ConnMan é um gerenciador de conexões de rede via terminal. Ele possui algumas interfaces gráficas, mas ainda estou testando.
+
+    O pacote `wpa_supplicant` permite conexão via Wifi. O pacote `bluez` permite conexão por bluetooth. O pacote `openvpn` permite conexão via VPN.
 
 <br />
 
@@ -467,14 +469,6 @@ O AINAD se utiliza do gerenciador de pacotes oficial do Arch Linux, o **Pacman**
     *Pacotes (AUR)* : `parcellite`
 
     Um gerenciador de áreas de transferência. Sem ele, a área de transferência não é persistente.
-
-<br />
-
-* **DMENU FOR NETWORK MANAGER**
-
-    *Pacotes (AUR)* : `networkmanager-dmenu-git`
-
-    Permite lançar algumas opções do **NetworkManager** através do dmenu, o que permite que se crie um lançador para o Rofi.
 
 <br />
 

@@ -409,9 +409,11 @@ AINAD uses the Arch Linux package manager **Pacman** and the package manager of 
 
 * **NETWORK SETTINGS**
 
-    *Packages* : `networkmanager nm-connection-editor`
+    *Packages* : `connman wpa_supplicant bluez openvpn`
 
-    An advanced application for network configuration.
+    ConnMan is a command line network manager. It has some graphical interfaces, but I'm still testing them.
+
+    The package `wpa_supplicant` allows Wifi connection. The package `bluez` allows bluetooth connection. The package `openvpn` allows VPN connection.
 
 <br />
 
@@ -472,14 +474,6 @@ AINAD uses the Arch Linux package manager **Pacman** and the package manager of 
     *Packages (AUR)* : `parcellite`
 
     A clipboard manager. Without it, the clipboard is not persistent.
-
-<br />
-
-* **DMENU FOR NETWORK MANAGER**
-
-    *Packages (AUR)* : `networkmanager-dmenu-git`
-
-    Allows launch some options of the **NetworkManager** throught dmenu, which allows to launch it via Rofi.
 
 <br />
 

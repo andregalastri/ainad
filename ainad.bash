@@ -523,7 +523,7 @@ function SectionInstall()
     packages+=("qt5ct");
 
     # Network Settings
-    packages+=("networkmanager nm-connection-editor dhcpcd iwd dhclient");
+    packages+=("connman wpa_supplicant bluez openvpn");
 
     # Picom
     packages+=("picom");
@@ -546,11 +546,6 @@ function SectionInstall()
 
     yay -Syy;
 
-    # When installing Yay, it installs Go package to compile it, but it is
-    # useless to keep it installed, so, it is removed to save disk space (about
-    # 400mb).
-    (echo "y") | LANG=C sudo pacman -R go;
-
     cd "$HOME";
 
     DoneStage;
@@ -569,9 +564,6 @@ function SectionInstall()
 
     # Parcellite
     (echo "y") | LANG=C yay --answerdiff None --answerclean All --removemake --needed -S parcellite;
-
-    # Dmenu for Network Manager
-    LANG=C yay --answerdiff None --answerclean All --removemake --needed -S networkmanager-dmenu-git;
 
     # KSuperKey
     LANG=C yay --answerdiff None --answerclean All --removemake --needed -S ksuperkey;
@@ -639,12 +631,6 @@ QT_QPA_PLATFORMTHEME=qt5ct
 GTK_THEME=Arc-Lighter
 ainadBaseDir=/usr/share/ainad
 " | sudo tee -a "$environmentFile" 1>/dev/null;
-
-    Describe "$textConfiguringNetworkManager";
-
-    sudo "$HOME/ainad/networkmanager_dmenu_languages.bash";
-    sudo ln -s "/usr/share/ainad/rofi/widgets/networkmanager-dmenu" "$HOME/.config/networkmanager-dmenu";
-
 
     Describe "$textConfiguringSamba";
 
@@ -735,7 +721,15 @@ ainadBaseDir=/usr/share/ainad
     # Stage: Enabling services that will run from startup.
     Describe "$textEnablingServices";
 
-    sudo systemctl enable sddm smb nmb avahi-daemon NetworkManager systemd-homed reflector;
+    sudo systemctl disable iwd;
+    sudo systemctl disable dhcpcd;
+    sudo systemctl enable sddm;
+    sudo systemctl enable smb
+    sudo systemctl enable nmb
+    sudo systemctl enable avahi-daemon
+    sudo systemctl enable systemd-homed
+    sudo systemctl enable reflector
+    sudo systemctl enable connman;
 
     DoneStage;
 

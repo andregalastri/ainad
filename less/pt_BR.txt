@@ -467,9 +467,14 @@ Arch Linux e o repositório da comunidade do Arch Linux, o AUR.
 
 -   NETWORK SETTINGS
 
-    Pacotes : networkmanager nm-connection-editor
+    Pacotes : connman wpa_supplicant bluez openvpn
 
-    Um programa avançado para configuração de redes.
+    ConnMan é um gerenciador de conexões de rede via terminal. Ele
+    possui algumas interfaces gráficas, mas ainda estou testando.
+
+    O pacote wpa_supplicant permite conexão via Wifi. O pacote bluez
+    permite conexão por bluetooth. O pacote openvpn permite conexão
+    via VPN.
 
 ----------------------------------------
 
@@ -543,15 +548,6 @@ Arch Linux e o repositório da comunidade do Arch Linux, o AUR.
 
     Um gerenciador de áreas de transferência. Sem ele, a área de
     transferência não é persistente.
-
-----------------------------------------
-
--   DMENU FOR NETWORK MANAGER
-
-    Pacotes (AUR) : networkmanager-dmenu-git
-
-    Permite lançar algumas opções do NetworkManager através do
-    dmenu, o que permite que se crie um lançador para o Rofi.
 
 ----------------------------------------
 
