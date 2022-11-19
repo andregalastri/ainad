@@ -314,14 +314,60 @@ class Updater implements CommonFiles, CommonDirectories
              * This command pass the selected packages to the bash script that
              * runs Yay to apply the updates.
              */
-            $updateStatus = exec('xfce4-terminal -e "'.self::APPLY_CMD.' \"'.implode(' ', $selectedPackages).'\""');
-
-            if ($updateStatus == 0) {
-                $this->writeUpToDateData();
-            }
+            exec('xfce4-terminal -e "'.self::APPLY_CMD.' \"'.implode(' ', $selectedPackages).'\""');
         } else {
             exec('dunstify -i "dialog-warning" -u "critical" -t 10000 "Atenção!" "É necessário selecionar ao menos um pacote de atualização."');
         }
+    }
+
+    /**
+     * Updates the PHP file and the ROFI styles to display the screen that
+     * everything is up to date.
+     *
+     * @return void
+     */
+    public function writeUpToDateData(): void
+    {
+        /**
+         * Saves the PHP file with empty data (because all is up to date and
+         * there is no updates available).
+         */
+        FileManager::writePhpVar(self::PACKAGE_DATA, [
+            'hasUpdates' => false,
+            'list' => [],
+            'currentPage' => 1,
+        ]);
+
+        /**
+         * Saves the ROFI styles with a message informing that the system is up
+         * to date.
+         */
+        FileManager::writeFile(self::UPDATER_PACKAGES_THEME,
+        "icon-up-to-date {
+            expand: false;
+            filename: \"".self::ASSETS_DIR."/check.svg\";
+            size: 90px;
+        }
+        
+        textbox-up-to-date {
+            font: \"RobotoCondensed 18px\";
+            content: \"Seu sistema está atualizado!\";
+            horizontal-align: 0.5;
+        }
+        
+        up-to-date-container {
+            children: [icon-up-to-date, textbox-up-to-date];
+            background-color: transparent;
+            padding: 70px 5px;
+        }
+        
+        mainbox {
+            children: [textbox-header-text, textbox-content-text, content-information, up-to-date-container, tools-bottom];
+        }
+        
+        tools-bottom {
+            children: [button-tools-close];
+        }");
     }
     
     /**
@@ -531,56 +577,6 @@ class Updater implements CommonFiles, CommonDirectories
         FileManager::writeFile(self::UPDATER_PAGINATION_THEME, implode("\n", $styles));
     }
 
-    /**
-     * Updates the PHP file and the ROFI styles to display the screen that
-     * everything is up to date.
-     *
-     * @return void
-     */
-    private function writeUpToDateData(): void
-    {
-        /**
-         * Saves the PHP file with empty data (because all is up to date and
-         * there is no updates available).
-         */
-        FileManager::writePhpVar(self::PACKAGE_DATA, [
-            'hasUpdates' => false,
-            'list' => [],
-            'currentPage' => 1,
-        ]);
-
-        /**
-         * Saves the ROFI styles with a message informing that the system is up
-         * to date.
-         */
-        FileManager::writeFile(self::UPDATER_PACKAGES_THEME,
-        "icon-up-to-date {
-            expand: false;
-            filename: \"".self::ASSETS_DIR."/check.svg\";
-            size: 90px;
-        }
-        
-        textbox-up-to-date {
-            font: \"RobotoCondensed 18px\";
-            content: \"Seu sistema está atualizado!\";
-            horizontal-align: 0.5;
-        }
-        
-        up-to-date-container {
-            children: [icon-up-to-date, textbox-up-to-date];
-            background-color: transparent;
-            padding: 70px 5px;
-        }
-        
-        mainbox {
-            children: [textbox-header-text, textbox-content-text, content-information, up-to-date-container, tools-bottom];
-        }
-        
-        tools-bottom {
-            children: [button-tools-close];
-        }");
-    }
-    
     /**
      * Imports the package data from the PHP file (only if the $packageList is
      * empty) and initiates the properties with the values imported.
