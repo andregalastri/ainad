@@ -57,7 +57,7 @@ AINAD uses the Arch Linux package manager **Pacman** and the package manager of 
 
 * **XORG**
 
-    *Packages* : `xorg-server xorg-xev`
+    *Packages* : `xorg-server xorg-xev xorg-xinput`
 
     The good old **Xorg** server is the backend that draws the graphical environment on the screen of the user.
   

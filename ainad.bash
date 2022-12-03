@@ -16,7 +16,7 @@ ainad[5]="       ╚═╝░░╚═╝╚═╝╚═╝░░╚══╝╚
 ainad[6]="╔═════════════════════════════════════════════╗ ";
 ainad[7]="║              IS  NOT  A  DISTRO             ║█";
 ainad[8]="╚═════════════════════════════════════════════╝█";
-ainad[9]="  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ v0.3.1-alpha ▀▀";
+ainad[9]="  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ v0.3.2-alpha ▀▀";
 
 # Stores the number of lines used by the $ainad array.
 #
@@ -379,7 +379,7 @@ function SectionInstall()
     Describe "$textInstallingNewApps2" 4;
 
     # Xorg
-    packages+=("xorg-server xorg-xev");
+    packages+=("xorg-server xorg-xev xorg-xinput");
 
     # SDDM
     packages=("sddm noto-fonts qt5-graphicaleffects qt5-quickcontrols2");

@@ -57,7 +57,7 @@ Arch Linux e o repositório da comunidade do Arch Linux, o AUR.
 
 -   XORG
 
-    Pacotes : xorg-server xorg-xev
+    Pacotes : xorg-server xorg-xev xorg-xinput
 
     O bom e velho servidor Xorg é o backend responsável por desenhar
     o ambiente gráfico na tela do usuário.

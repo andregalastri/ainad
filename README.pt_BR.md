@@ -55,7 +55,7 @@ O AINAD se utiliza do gerenciador de pacotes oficial do Arch Linux, o **Pacman**
 
 * **XORG**
 
-    *Pacotes* : `xorg-server xorg-xev`
+    *Pacotes* : `xorg-server xorg-xev xorg-xinput`
 
     O bom e velho servidor **Xorg** é o backend responsável por desenhar o ambiente gráfico na tela do usuário.
   

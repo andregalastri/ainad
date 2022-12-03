@@ -56,7 +56,7 @@ Arch Linux, the AUR.
 
 -   XORG
 
-    Packages : xorg-server xorg-xev
+    Packages : xorg-server xorg-xev xorg-xinput
 
     The good old Xorg server is the backend that draws the graphical
     environment on the screen of the user.
