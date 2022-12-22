@@ -16,7 +16,7 @@ ainad[5]="       ╚═╝░░╚═╝╚═╝╚═╝░░╚══╝╚
 ainad[6]="╔═════════════════════════════════════════════╗ ";
 ainad[7]="║              IS  NOT  A  DISTRO             ║█";
 ainad[8]="╚═════════════════════════════════════════════╝█";
-ainad[9]="  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ v0.3.2-alpha ▀▀";
+ainad[9]="  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ v0.3.3-alpha ▀▀";
 
 # Stores the number of lines used by the $ainad array.
 #
@@ -393,6 +393,9 @@ function SectionInstall()
     # Xdotool
     packages+=("xdotool");
 
+    # Thermald
+    packages+=("thermald");
+
     # PHP
     packages+=("php php-intl");
 
@@ -730,6 +733,7 @@ ainadBaseDir=/usr/share/ainad
     sudo systemctl enable systemd-homed
     sudo systemctl enable reflector
     sudo systemctl enable connman;
+    sudo systemctl enable thermald;
 
     DoneStage;
 

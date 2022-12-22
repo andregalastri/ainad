@@ -120,6 +120,14 @@ Arch Linux e o repositório da comunidade do Arch Linux, o AUR.
 
 ----------------------------------------
 
+-   THERMALD
+
+    Pacotes : thermald
+
+    Serviço para controlar a temperatura da CPU.
+
+----------------------------------------
+
 -   MAN - MANUAL INTERFACE
 
     Pacotes : man-db

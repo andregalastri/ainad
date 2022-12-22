@@ -99,6 +99,15 @@ O AINAD se utiliza do gerenciador de pacotes oficial do Arch Linux, o **Pacman**
 
 <br />
 
+
+* **THERMALD**
+
+    *Pacotes* : `thermald`
+
+    Serviço para controlar a temperatura da CPU.
+
+<br />
+
 * **MAN - MANUAL INTERFACE**
 
     *Pacotes* : `man-db`

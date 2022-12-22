@@ -119,6 +119,14 @@ Arch Linux, the AUR.
 
 ----------------------------------------
 
+-   THERMALD
+
+    Packages : thermald
+
+    Service to control the temperature of the CPU.
+
+----------------------------------------
+
 -   MAN - MANUAL INTERFACE
 
     Packages : man-db
