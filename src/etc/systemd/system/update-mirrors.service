@@ -1,0 +1,8 @@
+[Unit]
+Description=Updates the mirrorlist
+
+[Service]
+ExecStart=/usr/share/ainad/bash/services/update-mirror.bash
+
+[Install]
+WantedBy=multi-user.target
