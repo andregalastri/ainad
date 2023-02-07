@@ -13,6 +13,7 @@
  */
 return [
     'nemo.Nemo' => [''],
+    'xdg-desktop-portal-gtk' => [''],
     'mousepad' => [''],
     'terminal' => [''],
     'google-chrome' => ['', 9],
@@ -30,8 +31,12 @@ return [
     'rhythmbox' => [''],
     'file_progress.Nemo' => [''],
     'thunderbird' => [''],
+    'libreoffice-calc' => [''],
+    'libreoffice-writer' => [''],
+    'libreoffice-draw' => [''],
+    'libreoffice-math' => [''],
 
-    'gimp' => [''],
+    'Gimp' => [''],
     'vlc' => [''],
     'inkscape' => [''],
     'krita' => [''],
@@ -51,6 +56,7 @@ return [
     'VirtualBox' => [''],
     'filezilla.FileZilla' => [''],
     'simplescreenrecorder' => [''],
+    'system-config-printer' => [''],
 
     'FreeFileSync' => [''],
     'Meld.Meld' => [''],
@@ -63,6 +69,7 @@ return [
     'kvantum' => [''],
     'nm-connection-editor' => [''],
     'dconf-editor' => [''],
+    'Soffice' => [''],
 
     'N/A' => ['', 8],
 ];

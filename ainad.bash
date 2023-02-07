@@ -16,7 +16,7 @@ ainad[5]="       ╚═╝░░╚═╝╚═╝╚═╝░░╚══╝╚
 ainad[6]="╔═════════════════════════════════════════════╗ ";
 ainad[7]="║              IS  NOT  A  DISTRO             ║█";
 ainad[8]="╚═════════════════════════════════════════════╝█";
-ainad[9]="  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ v0.3.4-alpha ▀▀";
+ainad[9]="  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ v0.3.5-alpha ▀▀";
 
 # Stores the number of lines used by the $ainad array.
 #
@@ -405,9 +405,6 @@ function SectionInstall()
     # WMCtrl
     packages+=("wmctrl");
 
-    # Reflector
-    packages+=("reflector");
-
     # XFCE Terminal
     packages+=("xfce4-terminal");
 
@@ -677,6 +674,8 @@ ainadBaseDir=/usr/share/ainad
     sudo dbus-launch gsettings set org.nemo.preferences.menu-config selection-menu-open-as-root false;
     gsettings set org.nemo.preferences.menu-config background-menu-open-as-root false;
     sudo dbus-launch gsettings set org.nemo.preferences.menu-config background-menu-open-as-root false;
+    gsettings set org.nemo.preferences date-format-monospace false;
+    sudo dbus-launch gsettings set org.nemo.preferences date-format-monospace false;
 
     # Allow customizing Nemo keyboard shortcuts
     gsettings set org.cinnamon.desktop.interface can-change-accels true;
@@ -731,9 +730,9 @@ ainadBaseDir=/usr/share/ainad
     sudo systemctl enable nmb
     sudo systemctl enable avahi-daemon
     sudo systemctl enable systemd-homed
-    sudo systemctl enable reflector
     sudo systemctl enable connman;
     sudo systemctl enable thermald;
+    sudo systemctl enable update-mirrors;
 
     DoneStage;
 

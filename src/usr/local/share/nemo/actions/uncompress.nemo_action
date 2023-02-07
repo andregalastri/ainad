@@ -5,6 +5,6 @@ Comment=Extrai os arquivos comprimidos aqui
 Exec=<uncompress.bash %F>
 Icon-Name=extract-archive
 Selection=s
-Extensions=zip;7z;ar;cbz;cpio;exe;iso;jar;tgz;tar;tar.Z;tar.bz2;tar.gz;tar.lz;tar.lzma;tar.xz;rar;
+Extensions=zip;7z;7z.0001;7z.001;7z.01;7z.1;ar;cbz;cpio;exe;iso;jar;tgz;tar;tar.Z;tar.bz2;tar.gz;tar.lz;tar.lzma;tar.xz;rar;
 Quotes=double
 EscapeSpaces=true
