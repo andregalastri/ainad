@@ -45,16 +45,6 @@ At the end of the installation, the user will just be using Arch Linux and not s
 
 AINAD uses the Arch Linux package manager **Pacman** and the package manager of the community **Yay** to install the programs. AINAD users the official repositories of Arch Linux and the user repositories of Arch Linux, the **AUR**.
 
-<br />
-
-* **REFLECTOR**
-
-    *Packages* : `reflector`
-
-    Utility that keeps the mirror list up to date.
-  
-<br />
-
 * **XORG**
 
     *Packages* : `xorg-server xorg-xev xorg-xinput`

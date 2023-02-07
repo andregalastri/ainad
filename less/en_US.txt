@@ -44,16 +44,6 @@ manager of the community Yay to install the programs. AINAD users
 the official repositories of Arch Linux and the user repositories of
 Arch Linux, the AUR.
 
-
-
--   REFLECTOR
-
-    Packages : reflector
-
-    Utility that keeps the mirror list up to date.
-
-----------------------------------------
-
 -   XORG
 
     Packages : xorg-server xorg-xev xorg-xinput
@@ -69,7 +59,7 @@ Arch Linux, the AUR.
     best choice for now. Also, AINAD installs Openbox as window
     manager, which does not have an Wayland version.
 
-----------------------------------------
+
 
 -   SDDM
 
