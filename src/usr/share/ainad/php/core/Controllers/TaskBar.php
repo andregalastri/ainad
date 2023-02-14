@@ -37,6 +37,13 @@ class TaskBar implements CommonFiles, CommonDirectories
      */
     private array $cachedIcons;
 
+    /**
+     * @var array $ignoredAppClasses    Stores the list of ignored windows.
+     */
+    private array $ignoredAppClasses = [
+        'polybar.Polybar',
+    ];
+
     public  function __construct(){}
     
     /**
@@ -85,7 +92,7 @@ class TaskBar implements CommonFiles, CommonDirectories
             /**
              * Only windows that are in the current workspace will be shown.
              */
-            if ($windowWorkspace == $this->currentWorkspace) {
+            if ($windowWorkspace == $this->currentWorkspace or ($windowWorkspace == -1 and array_search($appClassName, $this->ignoredAppClasses) === false)) {
                 
                 /**
                  * Searches for the task icon that matches the window class
